@@ -1,0 +1,60 @@
+$theme-colors: (
+    "primary": rgb(23, 117, 146),
+    "danger": rgb(245, 24, 24)
+);
+@import "node_modules/bootstrap/scss/bootstrap";
+// // Custom.scss
+// // Option B: Include parts of Bootstrap
+// // Required
+// @import "node_modules/bootstrap/scss/functions";
+// @import "node_modules/bootstrap/scss/variables";
+// @import "node_modules/bootstrap/scss/mixins";
+
+// // Include custom variable default overrides here
+
+// // Optional
+// @import "node_modules/bootstrap/scss/reboot";
+// @import "node_modules/bootstrap/scss/type";
+// @import "node_modules/bootstrap/scss/images";
+// @import "node_modules/bootstrap/scss/code";
+// @import "node_modules/bootstrap/scss/grid";
+// @import "node_modules/bootstrap/scss/card";
+// @import "node_modules/bootstrap/scss/navbar";
+// @import "node_modules/bootstrap/scss/forms";
+*{
+    margin: 0;
+    padding: 0;
+    // .container {
+    //     border:1px solid rgb(247, 137, 35);
+    //     border-style: dotted;
+    //     .row-area {
+    //         border: 1px solid rgb(39, 39, 39);
+    //         margin: 3px 4px;
+    //     }
+    //     .col__area {
+    //         font-size: 15px;
+    //         font-weight: bold;
+    //         &--a {
+    //             background-color: rgb(216, 216, 216);
+    //         }
+    //         &--b {
+    //             background-color: rgb(204, 152, 152);
+    //         }
+    //         &--c {
+    //             background-color: rgb(193, 219, 133);
+    //         }
+    //         &--d {
+    //             background-color: rgb(253, 125, 136);
+    //         }
+    //     }
+    // }
+    .course {
+        &-item {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.cursor-pointed {
+    cursor: pointer;
+}

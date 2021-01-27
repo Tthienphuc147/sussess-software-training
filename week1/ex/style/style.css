@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+* .content .container .button-area .btn {
+  border-radius: 20px;
+  width: 120px;
+  font-weight: 500;
+  padding: 2px 5px;
+}
+
+* .content .container .button-area .btn-create {
+  background-color: #f56c1d;
+  color: #fff;
+}
+
+* .content .container .button-area .btn-reset {
+  background-color: #67d1a8;
+  color: white;
+}
+
+* .content .container .calendar-area .calendar-block {
+  width: 800px;
+  height: 900px;
+  border: 2px solid #000;
+  background-image: url(../images/bg.jpg);
+  background-size: cover;
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 25%);
+  grid-template-areas: "d1 d2 d3 d4" "d5 d6 d7 d8" "d9 d10 d11 d12" "d13 d14 d15 d16" "d17 d18 d19 d20" "d21 d22 d23 d24";
+}
+
+* .content .container .calendar-area .calendar-block .image {
+  background-image: none;
+  background-size: cover;
+  background-position: center;
+}
+
+* .content .container .calendar-area .calendar-block .text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  height: 100%;
+  width: 100%;
+  color: white;
+  padding: 10px;
+  border: 2px solid black;
+  transition: opacity 2.5s;
+}
