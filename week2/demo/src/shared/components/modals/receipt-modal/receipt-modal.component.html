@@ -1,0 +1,46 @@
+<div class="modal-area" *ngIf="formReceipt" [formGroup]="formReceipt">
+    <div class="title">
+        {{typeForm === typeFormEnum.CREATE ? 'create new receipt' : 'edit receipt'}}
+    </div>
+    <div class="content my-4">
+        <div class="row  mb-3">
+            <div class="col-4">
+                <p class="mb-0 required">Receipt Name</p>
+            </div>
+            <div class="col-8">
+                <input [class.is-invalid]="formErrors?.name" nz-input formControlName="name" />
+                <div class="invalid-feedback">
+                    {{ formErrors?.name }}
+                </div>
+            </div>
+        </div>
+        <div class="row  mb-3">
+            <div class="col-4">
+                <p class="mb-0 required">Receipt description</p>
+            </div>
+            <div class="col-8">
+                <textarea [class.is-invalid]="formErrors?.description" nz-input formControlName="description" ></textarea>
+                <div class="invalid-feedback">
+                    {{ formErrors?.description }}
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-4">
+                <p class="mb-0 required">Receipt image</p>
+            </div>
+            <div class="col-8">
+                <input [class.is-invalid]="formErrors?.image" nz-input formControlName="image" />
+                <img class="mt-2" [src]="formReceipt.getRawValue().image" *ngIf="formReceipt.getRawValue().image"
+                    width="120px" alt="">
+                <div class="invalid-feedback">
+                    {{ formErrors?.image }}
+                </div>
+            </div>
+        </div>
+        <div *nzModalFooter>
+            <button nz-button nzType="default" (click)="closePopup()">Cancel</button>
+            <button nz-button nzType="primary" (click)="submit()">Ok</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+.list-receipt {
+    ul {
+        list-style: none;
+        padding: 0;
+        li {
+            padding: 8px 10px;
+            margin:8px 0;
+            background-color: rgb(255, 255, 255);
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+            border-radius: 5px;
+            img {
+                width: 80px;
+                height: 80px;
+                object-fit: cover;
+                border-radius: 5px;
+            }
+            .title {
+                font-size: 18px;
+                font-weight: bold;
+            }
+            .sub-title {
+                font-size: 13px;
+            }
+            &:hover {
+                background:rgb(122, 185, 236);
+                color: #fff;
+                transition: all 0.3s;
+                cursor: pointer;
+            }
+        }
+    }
+}
+.information {
+    .image-area {
+        img {
+            width: 144px;
+            margin-right: 10px;
+            border-radius: 6px;
+        }
+    }
+}
+.active-receipt {
+    background:rgb(122, 185, 236) !important;
+    color: #fff;
+}

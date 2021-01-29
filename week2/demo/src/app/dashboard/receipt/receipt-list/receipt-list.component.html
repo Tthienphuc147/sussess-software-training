@@ -1,0 +1,75 @@
+<div class="content">
+    <div class="fluid-container mx-2">
+        <div class="d-flex justify-content-between my-2 align-items-center">
+            <h5>
+                List Receipts
+            </h5>
+            <button nz-button nzType="primary" (click)="openReceiptModal(typeFormEnum.CREATE)">
+                New receipt
+            </button>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="list-receipt">
+                    <ul>
+                        <li *ngFor="let item of data | paginate: { itemsPerPage: 4, currentPage: page };let i =index"
+                            (click)="chooseReceipt(item?.id)"
+                            [class.active-receipt] = "item?.id === currentReceipt?.id"
+                            >
+                            <div class="d-flex justify-content-between">
+                                <div class="d-flex flex-column">
+                                    <span class="title">{{item?.name}}</span>
+                                    <div class="sub-title">{{item?.description}}</div>
+                                </div>
+                                <img [src]="item?.image" alt="" class="ml-2">
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="has-text-centered">
+                        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-6 information">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5>Receipt Information</h5>
+                    <button nz-button nzType="success"  (click)="openReceiptModal(typeFormEnum.EDIT,currentReceipt)">Edit receipt</button>
+                </div>
+                <hr class="my-2">
+                <div class="d-flex flex-column">
+                    <div class="image-area">
+                        <img [src]="currentReceipt?.image" alt="">
+                    </div>
+                    <div class="infor-area">
+                        <div class="d-flex flex-column">
+                            <span class="font-weight-bold">Receipt name</span>
+                            <span>{{currentReceipt?.name}}</span>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <span class="font-weight-bold">Receipt description</span>
+                            <span>{{currentReceipt?.description}}</span>
+                        </div>
+                    </div>
+                    <span class="font-weight-bold">Receipt Ingredients</span>
+                    <div class="ingredient-area my-2">
+                        <table class="table">
+                            <thead>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Amount</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let element of currentReceipt?.ingredients;let i = index">
+                                    <td>{{i+1}}</td>
+                                    <td>{{element?.name}}</td>
+                                    <td>{{element?.amount}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

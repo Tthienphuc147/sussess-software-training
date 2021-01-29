@@ -1,0 +1,21 @@
+<nz-layout>
+  <nz-header>
+    <div class="logo">Receipt book</div>
+  </nz-header>
+  <nz-layout>
+    <nz-sider nzWidth="200px" nzTheme="light">
+      <ul nz-menu nzMode="inline" class="sider-menu">
+        <li nz-submenu nzOpen nzIcon="user" nzTitle="Receipts">
+          <ul>
+            <li nz-menu-item nzSelected [routerLink]="['/dashboard/receipt/receipt-list']" routerLinkActive="router-link-active">List receipt</li>
+          </ul>
+        </li>
+      </ul>
+    </nz-sider>
+    <nz-layout class="inner-layout">
+      <nz-content>
+        <router-outlet></router-outlet> 
+      </nz-content>
+    </nz-layout>
+  </nz-layout>
+</nz-layout>

@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+.modal-area {
+    .title {
+        font-size: 14px;
+        text-align: center;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+}
+.is-invalid {
+    border: 1px solid red;
+}
