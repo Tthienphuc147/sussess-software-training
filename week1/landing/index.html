@@ -1,70 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LaslesVPN</title>
     <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
+
 <body>
     <div id="wrapper">
         <div class="container">
             <section class="header-area">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <a class="navbar-brand" href="#"><img src="./image/logo.png" alt="" width="90px"></a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
                     </button>
-                  
+
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                      <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                          <a class="nav-link" href="#">About</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="#">Testimonials</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="#">Help</a>
-                          </li>
-                      </ul>
-                      <form class="form-inline my-2 my-lg-0">
-                        <button class="btn btn-login my-2 my-sm-0" >Sign in</button>
-                        <button class="btn btn-register my-2 my-sm-0" >Sign up</button>
-                      </form>
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Features</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Pricing</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Testimonials</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Help</a>
+                            </li>
+                        </ul>
+                        <form class="form-inline my-2 my-lg-0">
+                            <button class="btn btn-login my-2 my-sm-0">Sign in</button>
+                            <button class="btn btn-register my-2 my-sm-0">Sign up</button>
+                        </form>
                     </div>
-                  </nav>
+                </nav>
             </section>
             <section class="banner-area my-4">
                 <div class="row">
-                    <div class="col-6 banner-area--left">
+                    <div class="col-md-6 banner-area--left" data-aos="fade-left" 
+                        data-aos-duration="1500" >
                         <p class="title mb-0">
                             Want anything to be easy <br> with <span>LaslesVPN.</span>
                         </p>
                         <p class="sub-title mt-2">
-                            Provide a network for all your needs with ease and fun using LaslesVPN discover interesting features from us.
+                            Provide a network for all your needs with ease and fun using LaslesVPN.
                         </p>
-                        <div class="btn btn-banner">
+                        <div class="btn btn-banner my-2">
                             Get Started
                         </div>
                     </div>
-                    <div class="col-6 banner-area--right">
-                        <img src="./image/bg1.png" alt="">
+                    <div class="col-md-6 banner-area--right"  data-aos="fade-right" 
+                    data-aos-duration="1500">
+                        <img src="./image/bg1.png" alt="" width="100%">
                     </div>
                 </div>
-                <div class="banner-nav mx-4">
-                   <div class="row">
-                        <div class="col-4 banner-nav--item d-flex align-items-center justify-content-center">
+                <div class="banner-nav mx-4"  data-aos="zoom-in" 
+                data-aos-duration="1500">
+                    <div class="row">
+                        <div class="col-md-4 banner-nav--item d-flex align-items-center justify-content-center">
                             <div class="icon mr-4">
-                                <i class="fa fa-user" ></i>
+                                <i class="fa fa-user"></i>
                             </div>
                             <div class="infor d-flex flex-column">
                                 <span class="font-weight-bold">
@@ -73,9 +84,9 @@
                                 <span>Users</span>
                             </div>
                         </div>
-                        <div class="col-4 banner-nav--item d-flex align-items-center justify-content-center">
+                        <div class="col-md-4 banner-nav--item d-flex align-items-center justify-content-center">
                             <div class="icon mr-4">
-                                <i class="fa fa-location-arrow" ></i>
+                                <i class="fa fa-location-arrow"></i>
                             </div>
                             <div class="infor d-flex flex-column">
                                 <span class="font-weight-bold">
@@ -84,9 +95,9 @@
                                 <span>Locations</span>
                             </div>
                         </div>
-                        <div class="col-4 banner-nav--item d-flex align-items-center justify-content-center">
+                        <div class="col-md-4 banner-nav--item d-flex align-items-center justify-content-center">
                             <div class="icon mr-4">
-                                <i class="fa fa-database" ></i>
+                                <i class="fa fa-database"></i>
                             </div>
                             <div class="infor d-flex flex-column">
                                 <span class="font-weight-bold">
@@ -95,25 +106,32 @@
                                 <span>Server-s</span>
                             </div>
                         </div>
-                   </div>
+                    </div>
                 </div>
             </section>
             <section class="introduce-area my-4">
                 <div class="row">
-                    <div class="col-6">
-                        <div class="introduce-area--left">
-                            <img src="./image/bg2.png" alt="">
+                    <div class="col-md-6">
+                        <div class="introduce-area--left"  data-aos="zoom-in-right" 
+                        data-aos-duration="1500">
+                            <img src="./image/bg2.png" alt="" width="100%"  >
                         </div>
                     </div>
-                    <div class="col-6">
-                        <div class="introduce-area-right">
-                            <h2>We Provide Many <br> Features You Can Use</h2>
-                            <p class="my-4">You can explore the features that we provide with fun and have their own functions each feature.</p>
+                    <div class="col-md-6">
+                        <div class="introduce-area-right" data-aos="zoom-in-left" 
+                        data-aos-duration="1500">
+                            <h2 class="font-weight-bolder">We Provide Many <br> Features You Can Use</h2>
+                            <p class="my-4">You can explore the features that we provide with fun and have their own
+                                functions each feature.</p>
                             <ul class="d-flex flex-column justify-content-center">
-                                <li class="d-flex align-items-center"> <i class="fa fa-check mr-2" ></i>Powerfull online protection.</li>
-                                <li class="d-flex align-items-center"> <i class="fa fa-check mr-2" ></i>Internet without borders.</li>
-                                <li class="d-flex align-items-center"> <i class="fa fa-check mr-2" ></i>Supercharged VPN.</li>
-                                <li class="d-flex align-items-center"> <i class="fa fa-check mr-2" ></i> No specific time limits.</li>
+                                <li class="d-flex align-items-center"> <i class="fa fa-check mr-2"></i>Powerfull online
+                                    protection.</li>
+                                <li class="d-flex align-items-center"> <i class="fa fa-check mr-2"></i>Internet without
+                                    borders.</li>
+                                <li class="d-flex align-items-center"> <i class="fa fa-check mr-2"></i>Supercharged VPN.
+                                </li>
+                                <li class="d-flex align-items-center"> <i class="fa fa-check mr-2"></i> No specific time
+                                    limits.</li>
                             </ul>
                         </div>
                     </div>
@@ -121,22 +139,28 @@
             </section>
         </div>
         <section class="plan-area">
-            <div class="title-area text-center">
-                <h2>Choose Your Plan</h2>
+            <div class="title-area text-center" data-aos="fade-down" 
+            data-aos-duration="1500">
+                <h2 class="font-weight-bolder">Choose Your Plan</h2>
                 <p>Let's choose the package that is best for you and explore it happily and cheerfully.</p>
             </div>
             <div class="container">
-                <div class="row">
-                    <div class="col-4 ">
+                <div class="row" data-aos="zoom-in" 
+                data-aos-duration="1500">
+                    <div class="col-md-4 ">
                         <div class="plan-item d-flex flex-column align-items-center justify-content-center">
                             <div class="d-flex flex-column align-items-center justify-content-center">
-                                <img src="./image/Free.png" alt="">
+                                <img src="./image/Free.png" alt="" height="100px">
                                 <span class="font-weight-bold my-4">Free Plan</span>
                                 <ul class="d-flex flex-column justify-content-center">
-                                    <li class="d-flex align-items-center"> <i class="fa fa-check mr-2" ></i>Powerfull online protection.</li>
-                                    <li class="d-flex align-items-center"> <i class="fa fa-check mr-2" ></i>Internet without borders.</li>
-                                    <li class="d-flex align-items-center"> <i class="fa fa-check mr-2" ></i>Supercharged VPN.</li>
-                                    <li class="d-flex align-items-center"> <i class="fa fa-check mr-2" ></i> No specific time limits.</li>
+                                    <li class="d-flex align-items-center"> <i class="fa fa-check mr-2"></i>Unlimited
+                                        Bandwitch</li>
+                                    <li class="d-flex align-items-center"> <i class="fa fa-check mr-2"></i>Encrypted
+                                        Connection</li>
+                                    <li class="d-flex align-items-center"> <i class="fa fa-check mr-2"></i>No Traffic
+                                        Logs</li>
+                                    <li class="d-flex align-items-center"> <i class="fa fa-check mr-2"></i>Works on All
+                                        Devices</li>
                                 </ul>
                             </div>
                             <div class="my-4 d-flex flex-column align-items-center">
@@ -145,38 +169,51 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-md-4">
                         <div class="plan-item d-flex flex-column align-items-center justify-content-center">
                             <div class="d-flex flex-column align-items-center justify-content-center">
-                                <img src="./image/Free.png" alt="">
-                                <span class="font-weight-bold my-4">Free Plan</span>
+                                <img src="./image/Free.png" alt="" height="100px">
+                                <span class="font-weight-bold my-4">Standard Plan</span>
                                 <ul class="d-flex flex-column justify-content-center">
-                                    <li class="d-flex align-items-center"> <i class="fa fa-check mr-2" ></i>Powerfull online protection.</li>
-                                    <li class="d-flex align-items-center"> <i class="fa fa-check mr-2" ></i>Internet without borders.</li>
-                                    <li class="d-flex align-items-center"> <i class="fa fa-check mr-2" ></i>Supercharged VPN.</li>
-                                    <li class="d-flex align-items-center"> <i class="fa fa-check mr-2" ></i> No specific time limits.</li>
+                                    <li class="d-flex align-items-center"> <i class="fa fa-check mr-2"></i>Unlimited
+                                        Bandwitch</li>
+                                    <li class="d-flex align-items-center"> <i class="fa fa-check mr-2"></i>Encrypted
+                                        Connection</li>
+                                    <li class="d-flex align-items-center"> <i class="fa fa-check mr-2"></i>No Traffic
+                                        Logs</li>
+                                    <li class="d-flex align-items-center"> <i class="fa fa-check mr-2"></i>Works on All
+                                        Devices</li>
+                                    <li class="d-flex align-items-center"> <i class="fa fa-check mr-2"></i>Connect
+                                        Anyware</li>
                                 </ul>
                             </div>
                             <div class="my-4 d-flex flex-column align-items-center">
-                                <h4>Free</h4>
+                                <h4>$9 / mo</h4>
                                 <div class="btn btn-plan">Select</div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
-                        <div class="plan-item plan-item--active d-flex flex-column align-items-center justify-content-center">
+                    <div class="col-md-4">
+                        <div
+                            class="plan-item plan-item--active d-flex flex-column align-items-center justify-content-center">
                             <div class="d-flex flex-column align-items-center justify-content-center">
-                                <img src="./image/Free.png" alt="">
-                                <span class="font-weight-bold my-4">Free Plan</span>
+                                <img src="./image/Free.png" alt="" height="100px">
+                                <span class="font-weight-bold my-4">Premium Plan</span>
                                 <ul class="d-flex flex-column justify-content-center">
-                                    <li class="d-flex align-items-center"> <i class="fa fa-check mr-2" ></i>Powerfull online protection.</li>
-                                    <li class="d-flex align-items-center"> <i class="fa fa-check mr-2" ></i>Internet without borders.</li>
-                                    <li class="d-flex align-items-center"> <i class="fa fa-check mr-2" ></i>Supercharged VPN.</li>
-                                    <li class="d-flex align-items-center"> <i class="fa fa-check mr-2" ></i> No specific time limits.</li>
+                                    <li class="d-flex align-items-center"> <i class="fa fa-check mr-2"></i>Unlimited
+                                        Bandwitch</li>
+                                    <li class="d-flex align-items-center"> <i class="fa fa-check mr-2"></i>Encrypted
+                                        Connection</li>
+                                    <li class="d-flex align-items-center"> <i class="fa fa-check mr-2"></i>No Traffic
+                                        Logs</li>
+                                    <li class="d-flex align-items-center"> <i class="fa fa-check mr-2"></i>Works on All
+                                        Devices</li>
+                                    <li class="d-flex align-items-center"> <i class="fa fa-check mr-2"></i>Get New
+                                        Features</li>
                                 </ul>
                             </div>
                             <div class="my-4 d-flex flex-column align-items-center">
-                                <h4>Free</h4>
+                                <h4>$12 / mo</h4>
                                 <div class="btn btn-plan btn-plan--active">Select</div>
                             </div>
                         </div>
@@ -185,15 +222,446 @@
             </div>
         </section>
         <section class="world-area">
-            <div class="title-area text-center mb-4">
-                <h2>Huge Global Network of Fast VPN</h2>
+            <div class="title-area text-center mb-4" data-aos="fade-down" 
+            data-aos-duration="1500">
+                <h2 class="font-weight-bolder">Huge Global Network of Fast VPN</h2>
                 <p>See LaslesVPN everywhere to make it easier for you when you move locations.</p>
             </div>
-            <div class="pic-area d-flex flex-column my-4 justify-content-center align-items-center">
-                <img src="image/bg3.png" alt="" class="my-2">
-                <img src="image/bg4.png" alt="" class="my-2">
+            <div class="pic-area d-flex flex-column my-4 justify-content-center align-items-center px-2 py-2" data-aos="zoom-in" 
+            data-aos-duration="1500">
+                <img src="image/bg3.png" alt="" class="my-2 px-3" width="100%">
+                <img src="image/bg4.png" alt="" class="my-2 px-3" width="100%">
             </div>
         </section>
+        <section class="client-area" data-aos="fade-down" 
+        data-aos-duration="1500">
+            <section class="pt-5 pb-5">
+                <div class="container">
+                    <div class="title-area text-center mb-4">
+                        <h2 class="font-weight-bolder">Trusted by Thousands of <br> Happy Customer</h2>
+                        <p>These are the stories of our customers who have joined us with great <br> pleasure when using
+                            this crazy feature.</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-12  text-right">
+                            <a class="btn btn-client mb-3 mr-1" href="#carouselExampleIndicators2" role="button"
+                                data-slide="prev">
+                                <i class="fa fa-arrow-left"></i>
+                            </a>
+                            <a class="btn btn-client mb-3 " href="#carouselExampleIndicators2" role="button"
+                                data-slide="next">
+                                <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                        <div class="col-12">
+                            <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <div class="row">
+
+                                            <div class="col-md-4 mb-3">
+                                                <div class="card">
+                                                    <div class="avatar mx-4 my-2 d-flex justify-content-between mt-3">
+                                                        <div class="d-flex">
+                                                            <img src="image/ava1.png" alt="" class="mr-3">
+                                                            <div class="d-flex flex-column">
+                                                                <span class="font-weight-bold">
+                                                                    Viezh Robert
+                                                                </span>
+                                                                <span class="font-weight-light">
+                                                                    France
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <span class="mr-2">4.5</span>
+                                                            <img src="image/star.png" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+
+                                                        <p class="card-text">“Wow... I am very happy to use this VPN, it
+                                                            turned out to be more than my expectations and so far there
+                                                            have been no problems. LaslesVPN always the best”.</p>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <div class="card">
+                                                    <div class="avatar mx-4 my-2 d-flex justify-content-between mt-3">
+                                                        <div class="d-flex">
+                                                            <img src="image/ava2.png" alt="" class="mr-3">
+                                                            <div class="d-flex flex-column">
+                                                                <span class="font-weight-bold">
+                                                                    Yessica Christy
+                                                                </span>
+                                                                <span class="font-weight-light">
+                                                                    Shanxi, China
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <span class="mr-2">4.0</span>
+                                                            <img src="image/star.png" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+
+                                                        <p class="card-text">“I like it because I like to travel far and
+                                                            still can connect with high speed.”.</p>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <div class="card">
+                                                    <div class="avatar mx-4 my-2 d-flex justify-content-between mt-3">
+                                                        <div class="d-flex">
+                                                            <img src="image/ava3.png" alt="" class="mr-3">
+                                                            <div class="d-flex flex-column">
+                                                                <span class="font-weight-bold">
+                                                                    Kim Young Jou
+                                                                </span>
+                                                                <span class="font-weight-light">
+                                                                    Seoul, South Korea
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <span class="mr-2">4.0</span>
+                                                            <img src="image/star.png" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+
+                                                        <p class="card-text">“This is very unusual for my business that
+                                                            currently requires a virtual private network that has high
+                                                            security.”.</p>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="row">
+
+                                            <div class="col-md-4 mb-3">
+                                                <div class="card">
+                                                    <div class="avatar mx-4 my-2 d-flex justify-content-between mt-3">
+                                                        <div class="d-flex">
+                                                            <img src="image/ava1.png" alt="" class="mr-3">
+                                                            <div class="d-flex flex-column">
+                                                                <span class="font-weight-bold">
+                                                                    Viezh Robert
+                                                                </span>
+                                                                <span class="font-weight-light">
+                                                                    France
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <span class="mr-2">4.5</span>
+                                                            <img src="image/star.png" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+
+                                                        <p class="card-text">“Wow... I am very happy to use this VPN, it
+                                                            turned out to be more than my expectations and so far there
+                                                            have been no problems. LaslesVPN always the best”.</p>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <div class="card">
+                                                    <div class="avatar mx-4 my-2 d-flex justify-content-between mt-3">
+                                                        <div class="d-flex">
+                                                            <img src="image/ava2.png" alt="" class="mr-3">
+                                                            <div class="d-flex flex-column">
+                                                                <span class="font-weight-bold">
+                                                                    Yessica Christy
+                                                                </span>
+                                                                <span class="font-weight-light">
+                                                                    Shanxi, China
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <span class="mr-2">4.0</span>
+                                                            <img src="image/star.png" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+
+                                                        <p class="card-text">“I like it because I like to travel far and
+                                                            still can connect with high speed.”.</p>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <div class="card">
+                                                    <div class="avatar mx-4 my-2 d-flex justify-content-between mt-3">
+                                                        <div class="d-flex">
+                                                            <img src="image/ava3.png" alt="" class="mr-3">
+                                                            <div class="d-flex flex-column">
+                                                                <span class="font-weight-bold">
+                                                                    Kim Young Jou
+                                                                </span>
+                                                                <span class="font-weight-light">
+                                                                    Seoul, South Korea
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <span class="mr-2">4.0</span>
+                                                            <img src="image/star.png" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+
+                                                        <p class="card-text">“This is very unusual for my business that
+                                                            currently requires a virtual private network that has high
+                                                            security.”.</p>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="row">
+
+                                            <div class="col-md-4 mb-3">
+                                                <div class="card">
+                                                    <div class="avatar mx-4 my-2 d-flex justify-content-between mt-3">
+                                                        <div class="d-flex">
+                                                            <img src="image/ava1.png" alt="" class="mr-3">
+                                                            <div class="d-flex flex-column">
+                                                                <span class="font-weight-bold">
+                                                                    Viezh Robert
+                                                                </span>
+                                                                <span class="font-weight-light">
+                                                                    France
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <span class="mr-2">4.5</span>
+                                                            <img src="image/star.png" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+
+                                                        <p class="card-text">“Wow... I am very happy to use this VPN, it
+                                                            turned out to be more than my expectations and so far there
+                                                            have been no problems. LaslesVPN always the best”.</p>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <div class="card">
+                                                    <div class="avatar mx-4 my-2 d-flex justify-content-between mt-3">
+                                                        <div class="d-flex">
+                                                            <img src="image/ava2.png" alt="" class="mr-3">
+                                                            <div class="d-flex flex-column">
+                                                                <span class="font-weight-bold">
+                                                                    Yessica Christy
+                                                                </span>
+                                                                <span class="font-weight-light">
+                                                                    Shanxi, China
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <span class="mr-2">4.0</span>
+                                                            <img src="image/star.png" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+
+                                                        <p class="card-text">“I like it because I like to travel far and
+                                                            still can connect with high speed.”.</p>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <div class="card">
+                                                    <div class="avatar mx-4 my-2 d-flex justify-content-between mt-3">
+                                                        <div class="d-flex">
+                                                            <img src="image/ava3.png" alt="" class="mr-3">
+                                                            <div class="d-flex flex-column">
+                                                                <span class="font-weight-bold">
+                                                                    Kim Young Jou
+                                                                </span>
+                                                                <span class="font-weight-light">
+                                                                    Seoul, South Korea
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <span class="mr-2">4.0</span>
+                                                            <img src="image/star.png" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+
+                                                        <p class="card-text">“This is very unusual for my business that
+                                                            currently requires a virtual private network that has high
+                                                            security.”.</p>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <footer class="footer-area footer--light">
+            <div class="footer-big">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-12">
+                            <div class="footer-widget">
+                                <div class="widget-about">
+                                    <img src="image/logo.png" alt="" class="img-fluid">
+                                    <p>LaslesVPN is a private virtual network that has unique features and has high
+                                        security.</p>
+                                    <div class="contact-details">
+                                        <div class="d-flex">
+                                            <div class="icon">
+                                                <i class="fab fa-facebook" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="icon">
+                                                <i class="fab fa-google" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-4">
+                            <div class="footer-widget">
+                                <div class="footer-menu footer-menu--1">
+                                    <h4 class="footer-widget-title">Product</h4>
+                                    <ul>
+                                        <li>
+                                            <a href="#">Download</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Pricing</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Locations</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Server</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Countries</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-sm-4">
+                            <div class="footer-widget">
+                                <div class="footer-menu">
+                                    <h4 class="footer-widget-title">Engage</h4>
+                                    <ul>
+                                        <li>
+                                            <a href="#">LaslesVPN ?</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">FAQ</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Tutorials</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">About Us</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Privacy Policy</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Terms of Service</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-sm-4">
+                            <div class="footer-widget">
+                                <div class="footer-menu no-padding">
+                                    <h4 class="footer-widget-title">Earn Money</h4>
+                                    <ul>
+                                        <li>
+                                            <a href="#">Affiliate</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Become Partner</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="mini-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="go_top">
+                                <!-- <span> <i class="fa fa-arrow-up" aria-hidden="true"></i> </span> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
+
 </html>
