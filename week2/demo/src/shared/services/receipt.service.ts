@@ -1,12 +1,17 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { CookReceipt } from '../models/cook-receipt.model';
 import { Receipt } from '../models/receipt.model';
+import { BaseService } from './base.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ReceiptService {
+export class ReceiptService extends BaseService {
   public receiptData : Receipt[] = [];
-  constructor() { 
+  constructor(private httpClient: HttpClient) { 
+    super(httpClient);
     for(let i = 0 ; i < 10 ; i++) {
       let item = {
         id: i+1,
@@ -31,4 +36,15 @@ export class ReceiptService {
       this.receiptData.push(item);
     }
   }
+  getAllReceipt(): Observable<CookReceipt[]> {
+    const url = `api/receipt/get-all`;
+    return this.get<CookReceipt[]>(url);
+  }
+
+  getReceiptDetail(id?: string): Observable<CookReceipt> {
+    const url = `api/hoc-van/${id}`;
+    return this.get<CookReceipt>(url);
+  }
+
+
 }

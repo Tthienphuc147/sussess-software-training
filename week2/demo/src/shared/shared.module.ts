@@ -7,11 +7,13 @@ import { NzListModule } from 'ng-zorro-antd/list';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ComponentsModule } from './components/modals/components.module';
 import { ToastrModule } from 'ngx-toastr';
+import { DirectivesModule } from './directives/directives.module';
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
     FormsModule,
+    DirectivesModule,
     ReactiveFormsModule,
     NzFormModule,
     NgZorroAntdModule,

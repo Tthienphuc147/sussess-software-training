@@ -1,0 +1,241 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+* #wrapper .header-area .navbar-nav .nav-item {
+  margin: 0 20px;
+}
+
+* #wrapper .header-area .navbar-nav .nav-item .nav-link {
+  color: #000;
+  font-weight: 600;
+}
+
+* #wrapper .header-area .navbar-nav .active {
+  color: #05ac37 !important;
+}
+
+* #wrapper .banner-area {
+  padding: 30px 40px;
+}
+
+* #wrapper .banner-area .banner-image img {
+  object-fit: cover;
+  height: 25rem;
+}
+
+* #wrapper .banner-area .banner-content {
+  background-color: #d7f1dd;
+}
+
+* #wrapper .banner-area .banner-content-inner {
+  padding: 60px 50px;
+}
+
+* #wrapper .banner-area .banner-content-inner h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+* #wrapper .banner-area .banner-content-inner p {
+  padding-top: 10px;
+  font-size: 20px;
+}
+
+* #wrapper .category-area {
+  padding: 30px 40px;
+}
+
+* #wrapper .category-area h1 {
+  font-weight: bold;
+}
+
+* #wrapper .category-area .category-item .image {
+  overflow: hidden;
+}
+
+* #wrapper .category-area .category-item .image img {
+  border-radius: 6px;
+  object-fit: cover;
+  transform: scale(1);
+  transition: all ease .8s;
+}
+
+* #wrapper .category-area .category-item .star i {
+  color: #05ac37;
+}
+
+* #wrapper .category-area .category-item .title span {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+* #wrapper .category-area .category-item:hover .title span {
+  color: #05ac37;
+}
+
+* #wrapper .popular-area {
+  padding: 30px 40px;
+}
+
+* #wrapper .popular-area h1 {
+  font-weight: bold;
+}
+
+* #wrapper .popular-area .popular-item {
+  padding: 5px 8px;
+}
+
+* #wrapper .popular-area .popular-item img {
+  object-fit: cover;
+}
+
+* #wrapper .popular-area .popular-item span {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+}
+
+* #wrapper .inbox-area {
+  background-color: #acceb4;
+}
+
+* #wrapper .inbox-area-inner {
+  padding: 60px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+* #wrapper .inbox-area-inner h1 {
+  font-size: 4.5rem;
+  padding: 10px 0;
+  font-weight: bold;
+}
+
+* #wrapper .inbox-area-inner p {
+  font-size: 1.5rem;
+}
+
+* #wrapper .collection-area {
+  padding: 30px 40px;
+}
+
+* #wrapper .collection-area h1 {
+  font-weight: bold;
+}
+
+* #wrapper .collection-area .collection-item .content {
+  padding: 20px 10px;
+}
+
+* #wrapper .collection-area .collection-item .content h3, * #wrapper .collection-area .collection-item .content span {
+  color: #000;
+}
+
+* #wrapper .collection-area .collection-item .content span {
+  padding: 3px 4px;
+  color: #000;
+  display: block;
+  border: 1px solid #000;
+  width: 6rem;
+  text-align: center;
+  font-size: 13px;
+  border-radius: 3px;
+}
+
+* #wrapper .collection-area .collection-item:hover a {
+  text-decoration: none;
+}
+
+* #wrapper .footer-big {
+  padding: 105px 0 65px 0;
+}
+
+* #wrapper .footer-big .footer-widget {
+  margin-bottom: 40px;
+  padding: 0 10px;
+}
+
+* #wrapper .footer-big .footer-menu ul li a {
+  color: #898b96;
+}
+
+* #wrapper .footer-big p {
+  color: #898b96;
+}
+
+* #wrapper .footer-big ul li {
+  color: #898b96;
+}
+
+* #wrapper .footer--light {
+  background: #e7e8ed;
+}
+
+* #wrapper .footer-menu {
+  padding-left: 48px;
+}
+
+* #wrapper .footer-menu ul li a {
+  font-size: 15px;
+  line-height: 32px;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+* #wrapper .footer-menu ul li a:hover {
+  color: #05ac37;
+}
+
+* #wrapper .footer-menu--1 {
+  width: 100%;
+}
+
+* #wrapper .footer-widget-title {
+  line-height: 42px;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+* #wrapper .widget-about img {
+  display: block;
+  margin-bottom: 30px;
+}
+
+* #wrapper .widget-about p {
+  font-weight: 400;
+}
+
+* #wrapper .widget-about .contact-details {
+  margin: 30px 0 0 0;
+}
+
+* #wrapper .widget-about .contact-details .icon {
+  width: 30px;
+  height: 30px;
+  background-color: #05ac37;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+* #wrapper .widget-about .contact-details .icon i {
+  color: #fff;
+}
+
+@media (max-width: 991px) {
+  * #wrapper .footer-menu {
+    padding-left: 0;
+  }
+}
