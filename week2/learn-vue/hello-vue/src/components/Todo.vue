@@ -5,7 +5,7 @@
       <ul class="list">
         <div class="form my-3">
         <form action="">
-          <h4>Danh sách công việc</h4>
+          <h4>List tasks</h4>
           <div class="d-flex">
               <input type="text" class="form-control input-field" v-model="newTask">
           <button class="btn btn-success" @click.prevent="addTask">Add task</button>
@@ -13,8 +13,7 @@
         </form>
       </div>
         <li v-for="(task,index) in tasks" :key="index"  class="d-flex align-items-center">
-           <input type="checkbox" v-model="task.done" id="task" class="mr-3">
-           <label for="task" :class="{done: task.done}" class="mb-0">{{task.name}}</label>
+          <Task :taskData="task"></Task>
         </li>
       </ul>
     </div>
@@ -22,30 +21,40 @@
 </template>
 
 <script>
+import Task from './Task'
 export default {
+  components: { Task },
   name: 'Todo',
-  created() {
-
-  },
   data() {
     return {
       newTask: '',
-      tasks: [
-
-      ]
+      tasks: []
     }
   },
   props: {
    
   },
+  mounted(){
+    
+  },
   methods: {
-   addTask : () => {
-     this.tasks.push({
+   addTask() {
+     if (this.newTask) {
+       this.tasks.push({
        name: this.newTask,
        done: false
      });
+     return;
+     }
+     alert('This field is required')
    }
   },
+  watch: {
+    newTask: function(newValue, oldValue) {
+      console.log(oldValue);
+      console.log(newValue);
+    }
+  }
 }
 </script>
 
