@@ -14,7 +14,7 @@
         :class="[{'result-selected':item.no === currentAnswer.no},isSubmitted && getClassName(item)]"
         @click.prevent="!isSubmitted && chooseAnswer(item)"
       >
-      <span class="position-absolute icon-block" v-if="isSubmitted">
+      <span class="position-absolute icon-block " v-if="isSubmitted">
         <i class="fa fa-check icon icon-correct" v-if="item.no === currentAnswer.no && item.isCorrect"></i>
         <i class="fa fa-times icon icon-wrong" v-if="item.no === currentAnswer.no && !item.isCorrect"></i>
       </span>
