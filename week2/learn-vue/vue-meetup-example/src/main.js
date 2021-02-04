@@ -28,14 +28,15 @@ new Vue({
   el: '#app',
   router,
   store,
-  render: h => h(App),
+  render: (h) => h(App),
   created () {
     firebase.initializeApp({
-      apiKey: 'AIzaSyDIP7xzLAfBCilkFC-UuzYHoei4szcBQ3c',
-      authDomain: 'devmeetup-47ab7.firebaseapp.com',
-      databaseURL: 'https://devmeetup-47ab7.firebaseio.com',
-      projectId: 'devmeetup-47ab7',
-      storageBucket: 'devmeetup-47ab7.appspot.com'
+      apiKey: 'AIzaSyCBnP42Rlr0H7GDXFE0OvHCQ50RiOtMjp8',
+      authDomain: 'vue-meetup-69783.firebaseapp.com',
+      projectId: 'vue-meetup-69783',
+      storageBucket: 'vue-meetup-69783.appspot.com',
+      messagingSenderId: '321488154760',
+      appId: '1:321488154760:web:69fc22c1aafa5acf7a6f3d'
     })
   }
 })
