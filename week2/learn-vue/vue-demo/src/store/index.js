@@ -97,7 +97,6 @@ export default new Vuex.Store({
             text: err.message
           })
         })
-      // Reach out to firebase and store it
     },
     signUserUp ({commit}, payload) {
       commit('setLoading', true)

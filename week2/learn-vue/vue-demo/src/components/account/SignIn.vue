@@ -99,8 +99,6 @@ export default {
     ...mapActions(["signUserIn"]),
     handleSubmit() {
       this.submitted = true;
-
-      // stop here if form is invalid
       this.$v.$touch();
       if (!this.$v.$invalid) {
         const requestModel = {

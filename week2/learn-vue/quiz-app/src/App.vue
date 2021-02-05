@@ -8,11 +8,12 @@
       ></Header>
       <QuestionBox
         :currentQuestion="quizData[currentQuestionIndex]"
-         :next="nextQuestion"
-         :calculatePoint="calculate"
-         :questionAmount="quizData.length"
+        :next="nextQuestion"
+        :calculatePoint="calculate"
+        :questionAmount="quizData.length"
       ></QuestionBox>
     </div>
+    <notifications group="notification" position="top right" />
   </div>
 </template>
 
@@ -20,6 +21,7 @@
 import QuestionBox from "./components/QuestionBox";
 import Header from "./components/Header";
 import axios from "axios";
+import Vue from "vue";
 import _ from "lodash";
 export default {
   name: "App",
@@ -33,7 +35,7 @@ export default {
       currentQuestionIndex: 0,
       point: 0,
       questionNo: 1,
-      isLastQuestion: Boolean
+      isLastQuestion: Boolean,
     };
   },
   mounted() {
@@ -51,28 +53,23 @@ export default {
     getAllQuestions() {
       axios
         .get("https://opentdb.com/api.php?amount=5&category=27&type=multiple")
-        .then(
-          (res) => {
-             (this.quizData = res.data.results.map((item, index) => {
-              item["correct"] = { value: item.correct_answer, isCorrect: true };
-              item["wrong"] = (item.incorrect_answers || []).map(
-                (wrongItem) => {
-                  const model = { value: wrongItem, isCorrect: false };
-                  return model;
-                }
-              );
-              item["answerList"] = [...item["wrong"], item["correct"]];
-              item["answerList"] = _.shuffle([...item["answerList"]]);
-              item["questionNo"] = index + 1;
-              delete item.correct_answer;
-              delete item.incorrect_answers;
-              delete item.correct;
-              delete item.wrong;
-              return item;
-            }));
-          }
-           
-        )
+        .then((res) => {
+          this.quizData = res.data.results.map((item, index) => {
+            item["correct"] = { value: item.correct_answer, isCorrect: true };
+            item["wrong"] = (item.incorrect_answers || []).map((wrongItem) => {
+              const model = { value: wrongItem, isCorrect: false };
+              return model;
+            });
+            item["answerList"] = [...item["wrong"], item["correct"]];
+            item["answerList"] = _.shuffle([...item["answerList"]]);
+            item["questionNo"] = index + 1;
+            delete item.correct_answer;
+            delete item.incorrect_answers;
+            delete item.correct;
+            delete item.wrong;
+            return item;
+          });
+        })
         .catch((err) => console.log(err));
     },
     nextQuestion() {
@@ -82,8 +79,20 @@ export default {
     calculate(isCorrect) {
       if (isCorrect) {
         this.point += 10;
+        Vue.notify({
+          group: "notification",
+          title: "Notification",
+          type: "success",
+          text: "+ 10",
+        });
       } else {
         this.point = this.point > 0 ? this.point - 10 : 0;
+        Vue.notify({
+          group: "notification",
+          title: "Notification",
+          type: "error",
+          text: "- 10",
+        });
       }
     },
   },
