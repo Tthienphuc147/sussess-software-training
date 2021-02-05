@@ -1,4 +1,3 @@
-
 <template>
   <div>
     <MeetUp :title="'all meetups'"></MeetUp>
@@ -10,7 +9,12 @@
           :key="index"
         >
           <div class="card border-0 shadow">
-            <img :src="item.imgUrl" class="card-img-top" alt="..." />
+            <img
+              :src="item.imageUrl"
+              class="card-img-top"
+              alt="..."
+              height="200px"
+            />
             <div class="card-body">
               <h5 class="card-title mb-2">
                 <i class="fa fa-location-arrow mr-2" aria-hidden="true"></i>
@@ -19,6 +23,12 @@
               <div class="card-text text-black-50">
                 <i class="fa fa-calendar mr-2" aria-hidden="true"></i>
                 {{ item.date }}
+              </div>
+              <div class="card-text text-black-50 my-2 d-flex flex-column">
+                <span class="font-weight-bold"> Desctiption </span>
+                <span>
+                  {{ item.description }}
+                </span>
               </div>
               <div class="card-button">
                 <router-link :to="`/meet-up/meet-up-detail/${item.id}`"
@@ -39,7 +49,7 @@
 
 <script>
 import MeetUp from "./MeetUp";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 export default {
   components: { MeetUp },
   name: "MeetUpList",
@@ -51,7 +61,9 @@ export default {
     ...mapGetters(["getAllMeetUpData"]),
   },
   props: {},
-  methods: {},
+  methods: {
+    ...mapActions(["loadMeetUps"]),
+  },
 };
 </script>
 
@@ -64,5 +76,7 @@ export default {
     font-weight: bold;
   }
 }
+.card-img-top {
+  object-fit: cover;
+}
 </style>
-

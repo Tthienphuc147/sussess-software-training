@@ -96,7 +96,8 @@ export const store = new Vuex.Store({
         id: payload.id
       }
     // Reach out to firebase and store it
-      commit('createMeetup', meetup)
+      commit('createMeetup', meetup),
+      commit('setLoading', true)
     },
     clearError ({commit}) {
       commit('clearError')

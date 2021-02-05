@@ -1,4 +1,3 @@
-
 <template>
   <div class="home-container">
     <div class="button-area py-4 w-100 d-flex justify-content-center">
@@ -13,7 +12,7 @@
         </button></router-link
       >
     </div>
-    <section class="pb-4">
+    <!-- <section class="pb-4">
       <div
         id="carouselExampleSlidesOnly"
         class="carousel slide banner"
@@ -70,7 +69,7 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
-    </section>
+    </section> -->
   </div>
 </template>
 
@@ -101,4 +100,3 @@ export default {
   }
 }
 </style>
-

@@ -1,52 +1,97 @@
-
 <template>
   <div>
-    <div class="row no-gutter m-0">
-      <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
-      <div class="col-md-8 col-lg-6">
-        <div class="login d-flex align-items-center py-5">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-9 col-lg-8 mx-auto">
-                <h3 class="login-heading mb-4">Sign up</h3>
-                <form>
-                  <div class="form-label-group">
-                    <input
-                      type="email"
-                      id="inputEmail"
-                      class="form-control"
-                      placeholder="Email address"
-                      required
-                      autofocus
-                    />
-                  </div>
-
-                  <div class="form-label-group">
-                    <input
-                      type="password"
-                      id="inputPassword"
-                      class="form-control"
-                      placeholder="Password"
-                      required
-                    />
-                  </div>
-                  <div class="form-label-group">
-                    <input
-                      type="password"
-                      id="inputPassword"
-                      class="form-control"
-                      placeholder="Confirm password"
-                      required
-                    />
-                  </div>
-                  <button
-                    class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
-                    type="submit"
+    <div class="py-5">
+      <div class="container">
+        <div class="row">
+          <div
+            class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 mx-auto"
+          >
+            <div class="form-container">
+              <h3 class="login-heading mb-4">Sign up</h3>
+              <form @submit.prevent="handleSubmit">
+                <div class="form-label-group">
+                  <input
+                    type="email"
+                    placeholder="Email address"
+                    autofocus
+                    v-model="signUpForm.email"
+                    id="email"
+                    name="email"
+                    class="form-control"
+                    :class="{
+                      'is-invalid': submitted && $v.signUpForm.email.$error,
+                    }"
+                  />
+                  <div
+                    v-if="submitted && $v.signUpForm.email.$error"
+                    class="invalid-feedback"
                   >
-                    Sign up
-                  </button>
-                </form>
-              </div>
+                    <span v-if="!$v.signUpForm.email.required"
+                      >Email is required</span
+                    >
+                    <span v-if="!$v.signUpForm.email.email"
+                      >Email is invalid</span
+                    >
+                  </div>
+                </div>
+
+                <div class="form-label-group">
+                  <input
+                    type="password"
+                    v-model="signUpForm.password"
+                    id="password"
+                    name="password"
+                    placeholder="Password"
+                    class="form-control"
+                    :class="{
+                      'is-invalid': submitted && $v.signUpForm.password.$error,
+                    }"
+                  />
+                  <div
+                    v-if="submitted && $v.signUpForm.password.$error"
+                    class="invalid-feedback"
+                  >
+                    <span v-if="!$v.signUpForm.password.required"
+                      >Password is required</span
+                    >
+                    <span v-if="!$v.signUpForm.password.minLength"
+                      >Password must be at least 6 characters</span
+                    >
+                  </div>
+                </div>
+                <div class="form-label-group">
+                  <input
+                    type="password"
+                    v-model="signUpForm.confirmPassword"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    class="form-control"
+                    placeholder="Confirm password"
+                    :class="{
+                      'is-invalid':
+                        submitted && $v.signUpForm.confirmPassword.$error,
+                    }"
+                  />
+                  <div
+                    v-if="submitted && $v.signUpForm.confirmPassword.$error"
+                    class="invalid-feedback"
+                  >
+                    <span v-if="!$v.signUpForm.confirmPassword.required"
+                      >Confirm Password is required</span
+                    >
+                    <span
+                      v-else-if="!$v.signUpForm.confirmPassword.sameAsPassword"
+                      >Passwords must match</span
+                    >
+                  </div>
+                </div>
+                <button
+                  class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
+                  type="submit"
+                >
+                  Sign up
+                </button>
+              </form>
             </div>
           </div>
         </div>
@@ -56,28 +101,54 @@
 </template>
 
 <script>
+import { required, email, minLength, sameAs } from "vuelidate/lib/validators";
+import { mapActions } from "vuex";
 export default {
   name: "SignUp",
   created() {},
   data() {
-    return {};
+    return {
+      signUpForm: {
+        email: "",
+        password: "",
+        confirmPassword: "",
+      },
+      submitted: false,
+    };
+  },
+  validations: {
+    signUpForm: {
+      email: { required, email },
+      password: { required, minLength: minLength(6) },
+      confirmPassword: { required, sameAsPassword: sameAs("password") },
+    },
   },
   props: {},
-  methods: {},
+  methods: {
+    ...mapActions(["signUserUp"]),
+    handleSubmit() {
+      this.submitted = true;
+
+      // stop here if form is invalid
+      this.$v.$touch();
+      if (!this.$v.$invalid) {
+        const requestModel = {
+          email: this.signUpForm.email,
+          password: this.signUpForm.password,
+        };
+        this.signUserUp(requestModel);
+        return;
+      }
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.login {
-  min-height: 100vh;
-}
-.image {
-  min-height: 100vh;
-}
-.bg-image {
-  background-image: url("https://source.unsplash.com/WEQbe2jBg40/600x1200");
-  background-size: cover;
-  background-position: center;
+.form-container {
+  padding: 40px 50px;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
 }
 .login-heading {
   font-weight: 300;
@@ -97,4 +168,3 @@ export default {
   }
 }
 </style>
-

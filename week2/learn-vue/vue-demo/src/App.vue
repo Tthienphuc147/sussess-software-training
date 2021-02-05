@@ -24,12 +24,18 @@
                 >Meet up</router-link
               >
             </li>
-            <li class="nav-item">
+            <li class="nav-item" @click="onLogout()" v-if="userIsAuthenticated">
+              <div class="nav-link">
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+              </div>
+              >
+            </li>
+            <li class="nav-item" v-if="!userIsAuthenticated">
               <router-link class="nav-link" :to="'/account/sign-in'"
                 >Sign In</router-link
               >
             </li>
-            <li class="nav-item">
+            <li class="nav-item" v-if="!userIsAuthenticated">
               <router-link class="nav-link" :to="'/account/sign-up'"
                 >Sign Up</router-link
               >
@@ -41,8 +47,40 @@
     <div class="fluid-container">
       <router-view></router-view>
     </div>
+    <notifications group="notification" position="bottom right" />
   </div>
 </template>
+<script>
+import { mapGetters, mapActions } from "vuex";
+export default {
+  data() {
+    return {};
+  },
 
+  computed: {
+    ...mapGetters(["user"]),
+    userIsAuthenticated() {
+      return (
+        this.$store.getters.user !== null &&
+        this.$store.getters.user !== undefined
+      );
+    },
+  },
+  methods: {
+    ...mapActions(["logout", "loadMeetUps"]),
+    onLogout() {
+      this.logout();
+    },
+  },
+  mounted() {
+    this.loadMeetUps();
+  },
+};
+</script>
 <style lang="scss" scoped>
+.nav-link {
+  i {
+    cursor: pointer;
+  }
+}
 </style>
