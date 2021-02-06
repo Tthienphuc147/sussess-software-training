@@ -49,7 +49,7 @@ export default {
       axios
         .get(
           `https://opentdb.com/api.php?amount=5&category=${
-            Math.floor(Math.random() * 27) + 1
+            Math.floor(Math.random() * (26 - 23 + 1)) + 23
           }&type=multiple`
         )
         .then((res) => {
