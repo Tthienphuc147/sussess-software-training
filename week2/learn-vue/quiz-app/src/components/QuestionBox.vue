@@ -10,29 +10,80 @@
         class="answer-item d-flex justify-content-center position-relative"
         v-for="(item, index) in answerList"
         :key="index"
-        
-        :class="[{'result-selected':item.no === currentAnswer.no},isSubmitted && getClassName(item)]"
+        :class="[
+          { 'result-selected': item.no === currentAnswer.no },
+          isSubmitted && getClassName(item),
+        ]"
         @click.prevent="!isSubmitted && chooseAnswer(item)"
       >
-      <span class="position-absolute icon-block " v-if="isSubmitted">
-        <i class="fa fa-check icon icon-correct" v-if="item.no === currentAnswer.no && item.isCorrect"></i>
-        <i class="fa fa-times icon icon-wrong" v-if="item.no === currentAnswer.no && !item.isCorrect"></i>
-      </span>
-      <span v-html="item.value" class="text-center "></span>
+        <span class="position-absolute icon-block" v-if="isSubmitted">
+          <i
+            class="fa fa-check icon icon-correct"
+            v-if="item.no === currentAnswer.no && item.isCorrect"
+          ></i>
+          <i
+            class="fa fa-times icon icon-wrong"
+            v-if="item.no === currentAnswer.no && !item.isCorrect"
+          ></i>
+        </span>
+        <span v-html="item.value" class="text-center"></span>
       </div>
       <div class="noti mt-2">
-         <p v-if="isSubmitted && currentAnswer.isCorrect" class="noti-correct">Oh Yeah.Congratulations !</p>
-         <p v-if="isSubmitted && !currentAnswer.isCorrect" class="noti-wrong">Oh No!</p>
+        <p v-if="isSubmitted && currentAnswer.isCorrect" class="noti-correct">
+          Oh Yeah.Congratulations !
+        </p>
+        <p v-if="isSubmitted && !currentAnswer.isCorrect" class="noti-wrong">
+          Oh No!
+        </p>
       </div>
-       <div class="d-flex justify-content-center align-align-items-center mt-3">
-      <div class="btn btn-success mr-2 btn-box" @click="submit()" v-if="!isSubmitted && currentAnswer && currentAnswer.value">Submit</div>
-      <div class="btn btn-info ml-2 btn-box" @click="next()" v-if="isSubmitted && questionAmount !== questionCount">Next</div>
+      <div class="d-flex justify-content-center align-align-items-center mt-3">
+        <div
+          class="btn btn-success mr-2 btn-box"
+          @click="submit()"
+          v-if="!isSubmitted && currentAnswer && currentAnswer.value"
+        >
+          Submit
+        </div>
+        <div
+          class="btn btn-info ml-2 btn-box"
+          @click="next()"
+          v-if="isSubmitted && !isLastQuestion"
+        >
+          Next
+        </div>
+      </div>
     </div>
-    </div>
+    <modal name="modal">
+      <div>
+        <div class="container container-modal">
+          <div class="d-flex flex-column align-items-center">
+            <img
+              src="../assets/source.gif"
+              alt=""
+              class="mt-2"
+              width="100px"
+            />
+            <div class="title text-center">Congratulations</div>
+          </div>
+          <div class="content my-2 text-center">
+            <h4>Quiz completed successfully</h4>
+            <p>
+              You answered <b>{{ correctAnswerAmount }}</b> correct questions
+            </p>
+          </div>
+          <div class="button-area d-flex justify-content-center">
+            <button class="btn btn-info btn-sm" @click="restartPlay()">
+              Restart
+            </button>
+          </div>
+        </div>
+      </div>
+    </modal>
   </div>
 </template>
 
 <script>
+// import NotificationModal from "./modal/NotificationModal";
 export default {
   name: "QuestionBox",
   created() {},
@@ -41,55 +92,76 @@ export default {
       currentAnswer: Object,
       isSubmitted: false,
       isLastQuestion: false,
-      questionCount: 0
+      questionCount: 0,
     };
   },
   computed: {
     answerList() {
       return this.currentQuestion.answerList.map((item, index) => {
-        item['no'] = index++;
+        item["no"] = index++;
         return item;
-      })
-    }
+      });
+    },
   },
+
   props: {
     currentQuestion: Object,
     next: Function,
     calculatePoint: Function,
-    questionAmount: Number
+    questionAmount: Number,
+    correctAnswerAmount: Number,
+    restart: Function,
   },
   watch: {
-   currentQuestion: {
+    currentQuestion: {
       immediate: true,
       handler() {
         this.isSubmitted = false;
         this.currentAnswer = Object;
-      }
-    }
+      },
+    },
+    questionCount: {
+      handler(newValue) {
+        console.log(newValue);
+        if (newValue === this.questionAmount) {
+          this.isLastQuestion = true;
+          setTimeout(() => {
+            this.$modal.show("modal");
+          },2500)
+        }
+      },
+    },
   },
   methods: {
     submit() {
-      if(this.currentAnswer && this.currentAnswer.value) {
+      if (this.currentAnswer && this.currentAnswer.value) {
         this.isSubmitted = true;
         this.questionCount++;
         this.calculatePoint(this.currentAnswer.isCorrect);
       }
     },
-     chooseAnswer(answer) {
+    restartPlay() {
+      this.isSubmitted = false;
+      this.currentAnswer = Object;
+      this.questionCount = 0;
+      this.isLastQuestion = false;
+       this.$modal.hide('modal');
+      this.restart();
+    },
+    chooseAnswer(answer) {
       this.currentAnswer = answer;
     },
     getClassName(answer) {
       if (answer.isCorrect && answer.no === this.currentAnswer.no) {
-       return 'result-correct';
-     }
+        return "result-correct";
+      }
       if (!answer.isCorrect && answer.no === this.currentAnswer.no) {
-       return 'result-wrong';
-     }
-     if(answer.isCorrect) {
-       return 'result-correct';
-     }
-     
-    }
+        return "result-wrong";
+      }
+      if (answer.isCorrect) {
+        return "result-correct";
+      }
+    },
   },
 };
 </script>
@@ -159,21 +231,21 @@ export default {
 .btn-box {
   width: 120px;
 }
-.icon{
-    width: 15px;
-    height: 15px;
-    background-color: #fff;
-    border-radius: 50%;
-    &-correct {
-      color: rgb(47, 228, 77);
-    }
-    &-wrong {
-      color:  rgb(223, 20, 20);
-    }
+.icon {
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+  border-radius: 50%;
+  &-correct {
+    color: rgb(47, 228, 77);
+  }
+  &-wrong {
+    color: rgb(223, 20, 20);
+  }
 }
 .noti {
   p {
-    font-size:20px;
+    font-size: 20px;
     font-weight: bold;
     text-transform: uppercase;
     color: rgb(47, 228, 77);
@@ -182,7 +254,14 @@ export default {
     color: #fff;
   }
   .noti-wrong {
-     color:  rgb(223, 20, 20);
+    color: rgb(223, 20, 20);
+  }
+}
+.container-modal {
+  .title {
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(53, 145, 11);
   }
 }
 </style>

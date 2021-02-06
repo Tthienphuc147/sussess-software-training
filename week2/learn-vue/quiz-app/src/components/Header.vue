@@ -5,7 +5,7 @@
         quiz app
       </div>
       <div class="sub-title d-flex flex-column w-100 align-items-center">
-        <span class="font-weight-bold">Total Point : {{ point }}</span>
+        <span class="font-weight-bold">Total Point : {{ point }} <span v-if="correctAnswerAmount > 0">(<b>{{correctAnswerAmount}}</b> correct)</span></span>
       </div>
 
       <div class="progress">
@@ -34,6 +34,7 @@ export default {
     questionAmount: Number,
     point: Number,
     questionNo: Number,
+    correctAnswerAmount: Number,
   },
   computed: {
     progress() {
