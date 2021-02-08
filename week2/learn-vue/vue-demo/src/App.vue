@@ -77,10 +77,15 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .nav-link {
   i {
     cursor: pointer;
   }
+}
+.form-error {
+  color: red;
+  margin-top: 5px;
+  font-size: 12px;
 }
 </style>

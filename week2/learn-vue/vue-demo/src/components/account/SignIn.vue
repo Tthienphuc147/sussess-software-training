@@ -9,9 +9,12 @@
             <div class="form-container">
               <h3 class="login-heading mb-4">Welcome back!</h3>
               <form @submit.prevent="handleSubmit">
-                <div class="form-label-group">
+                <form-group
+                  :validator="$v.signInForm.email"
+                  class="form-label-group"
+                >
                   <input
-                    type="email"
+                    type="text"
                     v-model="signInForm.email"
                     id="email"
                     name="email"
@@ -21,20 +24,12 @@
                       'is-invalid': submitted && $v.signInForm.email.$error,
                     }"
                   />
-                  <div
-                    v-if="submitted && $v.signInForm.email.$error"
-                    class="invalid-feedback"
-                  >
-                    <span v-if="!$v.signInForm.email.required"
-                      >Email is required</span
-                    >
-                    <span v-if="!$v.signInForm.email.email"
-                      >Email is invalid</span
-                    >
-                  </div>
-                </div>
+                </form-group>
 
-                <div class="form-label-group">
+                <form-group
+                  class="form-label-group"
+                  :validator="$v.signInForm.password"
+                >
                   <input
                     type="password"
                     v-model="signInForm.password"
@@ -46,18 +41,7 @@
                       'is-invalid': submitted && $v.signInForm.password.$error,
                     }"
                   />
-                  <div
-                    v-if="submitted && $v.signInForm.password.$error"
-                    class="invalid-feedback"
-                  >
-                    <span v-if="!$v.signInForm.password.required"
-                      >Password is required</span
-                    >
-                    <span v-if="!$v.signInForm.password.minLength"
-                      >Password must be at least 6 characters</span
-                    >
-                  </div>
-                </div>
+                </form-group>
                 <button
                   class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
                   type="submit"
