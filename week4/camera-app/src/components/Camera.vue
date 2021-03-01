@@ -1,21 +1,26 @@
 
 <template>
   <div>
-    <div class="container py-4 px-2">
+    <div class="fluid-container">
       <div class="camera">
+        <Gallery class="gallery" />
+        <div class="snap-area">
+          <div class="btn btn-sm snap" v-on:click="$emit('takePicture')"></div>
+        </div>
         <video autoplay class="feed"></video>
-        <button class="btn btn-sm snap my-4" v-on:click="$emit('takePicture')">
-          Snap
-        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Gallery from "../components/Gallery";
 export default {
   name: "Camera",
   created() {},
+  components: {
+    Gallery,
+  },
   data() {
     return {};
   },
@@ -47,27 +52,49 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
   .feed {
     display: block;
     width: 100%;
-    max-width: 1280px;
     background-color: #000;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
       rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
-    transform: rotateY(360deg);
-    transform: rotateX(360deg);
   }
-  .snap {
-    margin: 10px 0;
-    padding: 10px;
-    width: 50px;
-    height: 50px;
+  .snap-area {
+    padding: 5px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     border: 0;
-    background-color: rgb(114, 171, 218);
-    color: #fff;
-    outline: none;
-    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    bottom: 30px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .snap {
+      padding: 5px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 0;
+      background-color: #dcd9d9;
+      color: #fff;
+      outline: none;
+      cursor: pointer;
+    }
+    &:hover {
+      transform: scale(1.5);
+      transition: 0.35s ease-in-out;
+      transition: 0.35s ease-in;
+    }
+  }
+  .gallery {
+    bottom: 10px;
+    right: 10px;
+    position: absolute;
+    z-index: 9999;
   }
 }
 </style>
