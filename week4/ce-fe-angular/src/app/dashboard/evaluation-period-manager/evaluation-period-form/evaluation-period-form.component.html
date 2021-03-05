@@ -1,1 +1,22 @@
-<p>evaluation-period-form works!</p>
+<div class="form-content">
+    <div class="row mb-2">
+        <div class="col-sm-6">
+            <label class="mb-1">Name</label>
+            <input type="text" pInputText formControlName="name" />
+        </div>
+        <div class="col-sm-6">
+            <label class="mb-1">Description</label>
+            <textarea formControlName="description" cols="30" rows="5"></textarea>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-sm-6">
+            <label>From Date</label>
+            <p-calendar formControlName="start_time"></p-calendar>
+        </div>
+        <div class="col-sm-6">
+            <label>End Date</label>
+            <p-calendar formControlName="end_time"></p-calendar>
+        </div>
+    </div>
+</div>

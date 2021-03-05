@@ -1,1 +1,50 @@
-<p>evaluation-period-list works!</p>
+<section class="header-page">
+
+</section>
+<section class="content-page">
+    <div class="table">
+        <p-table [value]="dtoList" #dt sortMode="single" [rowHover]="true" [responsive]="true" [scrollable]="true"
+            scrollHeight="530px" (onLazyLoad)="getAll($event)">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>No</th>
+                    <th>Name Period</th>
+                    <th>From Date</th>
+                    <th>To Date</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+                <tr>
+                    <td>{{ rowIndex + 1}}</td>
+                    <td>
+                        {{ item.name }}
+                    </td>
+                    <td>
+                        {{ item.start_time | date:"dd/MM/YYYY" }}
+                    </td>
+                    <td>
+                        {{ item.end_time | date:"dd/MM/YYYY" }}
+                    </td>
+                    <td>
+                        {{ item.description }}
+                    </td>
+                    <td>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <i [routerLink]="'/evaluation-period-manager/edit/'+ item.id"
+                                class="fa fa-eye table-icon--view cursor-pointer" aria-hidden="true"></i>
+                        </div>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td [attr.colspan]="16" style="width: 2240px;">
+                        No records found
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</section>
