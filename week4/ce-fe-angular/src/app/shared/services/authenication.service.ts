@@ -24,7 +24,6 @@ export class AuthenticationService extends BaseService {
 
   public login(usernameOrEmail: string, password: string): Observable<any> {
 
-    // TODO open when implemented
     return this.post<AuthenticationModel>('api/login', {
       email: usernameOrEmail,
       password: password
@@ -48,7 +47,6 @@ export class AuthenticationService extends BaseService {
     }
   }
   public logOut() {
-    //TODO logOut
     localStorage.clear();
     this.router.navigate(['/']);
   }

@@ -42,9 +42,10 @@ export class LoaderInterceptor implements HttpInterceptor {
         this.authenticationService.logOut();
         break;
       case 403:
+        this.goTo(`page-not-permission`);
       case 404:
         // case 500:
-        this.goTo(`/exception/${ev.status}`);
+        this.goTo(`page-not-found`);
         break;
       default:
         break;
@@ -72,9 +73,6 @@ export class LoaderInterceptor implements HttpInterceptor {
           },
           err => {
             this.handleData(err);
-            //TODO add notification
-            console.log(err);
-            
             this.ngxNotificationMsgService.open({
               status: NgxNotificationStatusMsg.FAILURE,
               direction: NgxNotificationDirection.TOP_RIGHT,

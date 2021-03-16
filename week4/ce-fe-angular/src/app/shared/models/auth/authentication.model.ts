@@ -1,5 +1,4 @@
 export class AuthenticationModel {
-    //TODO model
     jwttoken: string;
     email: string;
     id: number;
