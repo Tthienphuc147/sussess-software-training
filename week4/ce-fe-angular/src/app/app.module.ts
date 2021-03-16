@@ -22,6 +22,7 @@ import { EvaluationPeriodManagerModule } from './dashboard/evaluation-period-man
 import { MemberManagerModule } from './dashboard/member-manager/member-manager.module';
 import { PageNotFoundComponent } from './exception/page-not-found/page-not-found.component';
 import { PageNotPermissionComponent } from './exception/page-not-permission/page-not-permission.component';
+import { SimpleNotificationsModule } from 'angular2-notifications';
 
 @NgModule({
   declarations: [

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { PageNotFoundComponent } from './exception/page-not-found/page-not-found.component';
 import { PageNotPermissionComponent } from './exception/page-not-permission/page-not-permission.component';
+import { LoginGuard } from './shared/guards/login.guard';
 
 const routes: Routes = [
   {
@@ -12,6 +13,9 @@ const routes: Routes = [
   {
     path: 'dashboard',
     loadChildren: () => import('./dashboard/dashboard.module').then(mod => mod.DashboardModule),
+    canActivate: [
+      LoginGuard,
+    ],
   },
   {
     path: 'page-not-found',

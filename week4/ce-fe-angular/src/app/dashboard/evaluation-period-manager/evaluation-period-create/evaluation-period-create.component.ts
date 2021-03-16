@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { EvaluationPeriodFormComponent } from '../evaluation-period-form/evaluation-period-form.component';
 
 @Component({
   selector: 'app-evaluation-period-create',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EvaluationPeriodCreateComponent implements OnInit {
 
+  @ViewChild('form', {static: true}) form: EvaluationPeriodFormComponent; 
+  id: string;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  save(): void {
+    this.form.submitForm();
   }
 
 }

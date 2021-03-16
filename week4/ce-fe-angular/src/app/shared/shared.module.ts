@@ -5,7 +5,6 @@ import { ComponentModule } from './components/component.module';
 import { ApplicationService } from './services/aplication.service';
 import { AuthenticationService } from './services/authenication.service';
 import { SpinnerService } from './services/spinner.service';
-import { SimpleNotificationsModule } from 'angular2-notifications';
 import { BlockUIModule } from 'primeng';
 import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
@@ -17,6 +16,9 @@ import { TabViewModule } from 'primeng/tabview';
 import { DropdownModule } from 'primeng/dropdown';
 import { EditorModule } from 'primeng/editor';
 import { CalendarModule } from 'primeng/calendar';
+import { NgxNotificationMsgModule } from 'ngx-notification-msg';
+import { LoginGuard } from './guards/login.guard';
+
 
 @NgModule({
   declarations: [],
@@ -26,7 +28,6 @@ import { CalendarModule } from 'primeng/calendar';
     ReactiveFormsModule,
     ComponentModule,
     BlockUIModule,
-    SimpleNotificationsModule,
     TableModule,
     DialogModule,
     MenuModule,
@@ -36,8 +37,8 @@ import { CalendarModule } from 'primeng/calendar';
     TabViewModule,
     DropdownModule,
     EditorModule,
-    CalendarModule
-
+    CalendarModule,
+    NgxNotificationMsgModule
   ],
   exports: [
     FormsModule,
@@ -57,7 +58,8 @@ import { CalendarModule } from 'primeng/calendar';
   providers: [
     ApplicationService,
     AuthenticationService,
-    SpinnerService
+    SpinnerService,
+    LoginGuard
   ]
 })
 export class SharedModule { }

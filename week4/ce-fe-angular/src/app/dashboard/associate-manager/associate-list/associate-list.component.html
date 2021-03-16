@@ -4,7 +4,7 @@
 <section class="content-page">
     <div class="table">
         <p-table [value]="dtoList" #dt sortMode="single" [rowHover]="true" [responsive]="true" [scrollable]="true"
-            scrollHeight="530px" (onLazyLoad)="getAll($event)">
+            scrollHeight="530px" (onLazyLoad)="getAll()">
             <ng-template pTemplate="header">
                 <tr>
                     <th>No</th>
@@ -26,12 +26,12 @@
                         {{ item.email }}
                     </td>
                     <td>
-                        {{ item.birthday | date:"dd/MM/YYYY" }}
+                        {{ item.birthday | date:"dd/MM/yyyy" }}
                     </td>
                     <td>
                         <div class="d-flex justify-content-center align-items-center">
-                            <div class="assoicate-role" [ngClass]="{ 'assoicate-role--member': item.role.id === 2,
-                          'assoicate-role--manager': item.role.id === 3}">
+                            <div class="associate-role" [ngClass]="{ 'associate-role--member': item.role.id === eRole.MEMBER_ROLE,
+                          'associate-role--manager': item.role.id === eRole.MANAGER_ROLE}">
                                 {{ item.role && item.role.name }}
                             </div>
                         </div>

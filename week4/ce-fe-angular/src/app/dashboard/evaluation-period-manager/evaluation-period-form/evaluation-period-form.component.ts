@@ -1,9 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NotificationsService } from 'angular2-notifications';
+import { NgxNotificationMsgService, NgxNotificationStatusMsg, NgxNotificationDirection } from 'ngx-notification-msg';
 import CustomValidator from 'src/app/shared/helpers/custom-validator.helper';
 import ValidationHelper from 'src/app/shared/helpers/validation.helper';
-import { AssociateService } from 'src/app/shared/services/associate.service';
+import { EvaluationPeriod } from 'src/app/shared/models/evaluation-period/evaluation-period.model';
 import { EvaluationPeriodService } from 'src/app/shared/services/evaluation-period.service';
 
 @Component({
@@ -13,7 +15,7 @@ import { EvaluationPeriodService } from 'src/app/shared/services/evaluation-peri
 })
 export class EvaluationPeriodFormComponent implements OnInit {
   @Input() id;
-  evaluationPeriod: any;
+  evaluationPeriod = new EvaluationPeriod();
   evaluationPeriodForm: FormGroup;
   isSubmitted = false;
   invalidMessages = [];
@@ -26,8 +28,8 @@ export class EvaluationPeriodFormComponent implements OnInit {
 
   constructor(
     private evaluationPeriodService: EvaluationPeriodService,
-
-    private notificationService: NotificationsService,
+    private router: Router,
+    private  ngxNotificationMsgService: NgxNotificationMsgService,
     private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -43,10 +45,10 @@ export class EvaluationPeriodFormComponent implements OnInit {
 
   createForm(): void {
     this.evaluationPeriodForm = this.fb.group({
-      name: [this.evaluationPeriod.fullName, [CustomValidator.required]],
-      start_time: [this.evaluationPeriod.email, [CustomValidator.required]],
-      end_time: [this.evaluationPeriod.position, [CustomValidator.required]],
-      description: [this.evaluationPeriod.positionGroup, [CustomValidator.required]],
+      name: [this.evaluationPeriod.name, [CustomValidator.required]],
+      start_time: [this.evaluationPeriod.start_time ? new Date(this.evaluationPeriod.start_time): null, [CustomValidator.required]],
+      end_time: [this.evaluationPeriod.end_time ? new Date(this.evaluationPeriod.end_time): null, [CustomValidator.required]],
+      description: [this.evaluationPeriod.description, [CustomValidator.required]],
     })
     this.evaluationPeriodForm.valueChanges.subscribe(_ => {
       this.onFormValueChanged();
@@ -79,7 +81,13 @@ export class EvaluationPeriodFormComponent implements OnInit {
       requestModel.append("end_time", this.evaluationPeriodForm.getRawValue().end_time);
       requestModel.append("description", this.evaluationPeriodForm.getRawValue().description);
       this.evaluationPeriodService.saveEvaluationPeriod(requestModel, this.id).subscribe(res => {
-        this.notificationService.success('Notification', this.id ? 'Update Evaluation Period Information Successful' : 'Create Evaluation Period Successful')
+        this.ngxNotificationMsgService.open({
+          status: NgxNotificationStatusMsg.SUCCESS,
+          direction: NgxNotificationDirection.TOP_RIGHT,
+          header: 'Notification',
+          messages: [this.id ? 'Update Evaluation Period Information Successful' : 'Create Evaluation Period Successful']
+       });
+       this.router.navigate(['/evaluation-period-manager'])
       })
     }
   }

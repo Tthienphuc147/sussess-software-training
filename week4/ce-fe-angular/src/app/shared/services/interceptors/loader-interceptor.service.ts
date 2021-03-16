@@ -10,7 +10,7 @@ import {
 import { Observable } from 'rxjs';
 import { SpinnerService } from '../spinner.service';
 import { AuthenticationService } from '../authenication.service';
-import { NotificationsService } from 'angular2-notifications';
+import { NgxNotificationDirection, NgxNotificationMsgService, NgxNotificationStatusMsg } from 'ngx-notification-msg';
 
 @Injectable()
 export class LoaderInterceptor implements HttpInterceptor {
@@ -19,7 +19,7 @@ export class LoaderInterceptor implements HttpInterceptor {
   constructor(
     private spinnerService: SpinnerService,
     private authenticationService: AuthenticationService,
-    private notificationService: NotificationsService,
+    private  ngxNotificationMsgService: NgxNotificationMsgService,
     private router: Router) { }
 
   removeRequest(req: HttpRequest<any>) {
@@ -56,7 +56,7 @@ export class LoaderInterceptor implements HttpInterceptor {
     this.spinnerService.isLoading.next(true);
     const url = req.url;
     const authenticationModel = this.authenticationService.getAuthenticationModel();
-    const token = authenticationModel ? authenticationModel.jwToken : '';
+    const token = authenticationModel ? authenticationModel.jwttoken : '';
     const headers = {
       Authorization: `Bearer ${token}`
     };
@@ -73,7 +73,15 @@ export class LoaderInterceptor implements HttpInterceptor {
           err => {
             this.handleData(err);
             //TODO add notification
-            this.notificationService.error('Notification', err.message);
+            console.log(err);
+            
+            this.ngxNotificationMsgService.open({
+              status: NgxNotificationStatusMsg.FAILURE,
+              direction: NgxNotificationDirection.TOP_RIGHT,
+              header: 'Error',
+              delay:4000,
+              messages: [err.error && err.error && err.error.error.message],
+           });
             this.removeRequest(req);
             observer.error(err);
           },

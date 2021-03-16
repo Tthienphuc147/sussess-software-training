@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API_ENDPOINT: '...',//api url
+  API_ENDPOINT: 'https://test.youngpinejobs.com/',//api url
 };
 
 /*

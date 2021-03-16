@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+* {
+  font-family: 'Open Sans', sans-serif;
+}
 @mixin animation($value) {
   -webkit-animation: $value;
   animation: $value;
@@ -60,4 +64,221 @@
   50% {
     @include transform(scale(1));
   }
+}
+.is-invalid {
+  border:1px solid red !important;
+}
+
+.border-dash {
+  border-top: 1px dashed rgb(206, 206, 206);
+}
+.arrow {
+  font-size:14px;
+  color: rgb(197, 197, 197);
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.header-page {
+  background-color: #fff;
+  padding: 0.5rem;
+  height: 3.2rem;
+  display: flex;
+  align-items: center;
+  .title {
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 1.7rem;
+  }
+  .button-area {
+    .btn-ce {
+      padding: 3px 5px;
+      border-radius: 3px;
+      // width: 80px;
+      &--primary {
+        background-color: rgb(230, 89, 7);
+        color: #fff;
+      }
+      &--submit,&--generate {
+        background-color: rgb(42, 134, 5);
+        color: #fff;
+      }
+      &--approve {
+        background-color: rgb(31, 88, 8);
+        color: #fff;
+      }
+      &--cancel {
+        background-color: rgb(202, 202, 202);
+      }
+    }
+  }
+}
+.content-page {
+  background-color: #fff;
+  min-height: 100vh;
+  height: 100%;
+  margin: 1.5rem 2rem;
+  .filter-area {
+    .filter-block {
+      label {
+        font-weight: bold;
+        min-width: 10rem;
+        text-align: left;
+      }
+      .form-control {
+        min-width: 10rem;
+      }
+    }
+    .filter-button-area {
+      .btn-ce {
+        padding: 3px 5px;
+        border-radius: 2px;
+        width: 80px;
+        &--filter {
+          background-color: rgb(2, 124, 28);
+          color: #fff;
+        }
+        &--clear {
+          background-color: rgb(221, 221, 221);
+          color: rgb(24, 23, 23);
+        }
+      }
+    }
+  }
+
+  .table-area {
+      .eva-status {
+        width: 120px;
+        padding: 3px 4px;
+        border-radius: 2px;
+        font-weight: bold;
+        &--new {
+          background-color: #f29d18;
+          color: #fff;
+        }
+        &--evaluated {
+          background-color: #d7f7d6;
+          color: #000;
+        }
+        &--waiting {
+          background-color: #73a1ea;
+          color: #fff;
+        }
+        &--approved {
+          background-color: #388b59;
+          color: #fff;
+        }
+      }
+      .associate-role {
+        width: 120px;
+        padding: 3px 4px;
+        border-radius: 2px;
+        font-weight: bold;
+        &--manager {
+          background-color: #037ec5;
+          color: #fff;
+        }
+        &--member {
+          background-color: #aaaaaa;
+          color: #000;
+        }
+      }
+      .table-icon {
+        &--view {
+          color: #f1870d;
+        }
+        &--review {
+          color: #1f48ce;
+        }
+        &--delete {
+          color: #d30c0c;
+        }
+        &--info {
+          color: #c0c0c0;
+        }
+      }
+    }
+}
+.vm--modal {
+  height: 450px !important;
+  padding: 1.5rem 2rem !important;
+}
+.container-modal {
+  .title {
+    font-size: 20px;
+  }
+  .filter-block {
+    label {
+      font-weight: bold;
+    }
+    .form-control {
+      min-width: 10rem;
+    }
+  }
+  .btn-modal {
+    border: 1px solid rgb(42, 134, 5);
+    width: 80px;
+    &--ok {
+      background-color: rgb(42, 134, 5);
+      color: #fff;
+    }
+    &--cancel {
+      background-color: rgb(235, 235, 235);
+      color: rgb(42, 134, 5);
+    }
+  }
+}
+
+.vue-numeric-input {
+  input {
+    text-align: center !important;
+  }
+  .btn-decrement {
+    left: 0px !important;
+    top: 1px !important;
+    bottom: 0px !important;
+    .btn-icon {
+      top: -2px !important;
+    }
+  }
+  .btn-increment {
+    right: 0px !important;
+    top: 1px !important;
+    bottom: 0px !important;
+    .btn-icon {
+      top: -2px !important;
+    }
+  }
+}
+.vm--modal {
+  height:450px !important;
+}
+.btn-generate {
+  padding: 3px 5px;
+  border-radius: 3px;
+  background-color: rgb(42, 134, 5);
+  color: #fff;
+}
+.note {
+  color: rgb(230, 11, 11);
+}
+
+.required:after {
+  content: '*';
+  color: red;
+  font-style: italic;
+}
+
+.invalid-select { 
+  border: 1px solid red !important;
+}
+
+//table-theme
+body .ui-table .ui-table-thead > tr > th {
+    border: 1px solid #f1f1f1 !important;
+    color: #ffffff !important;
+    background-color: #a5e0ba !important;
+}
+body .ui-table .ui-table-tbody > tr > td {
+  border: 1px solid #f1f1f1 !important;
 }

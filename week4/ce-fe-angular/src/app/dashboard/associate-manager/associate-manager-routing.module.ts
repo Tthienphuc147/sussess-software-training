@@ -12,19 +12,19 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'associate-list',
+        redirectTo: 'list',
         pathMatch: 'full'
       },
       {
-        path: 'associate-list',
+        path: 'list',
         component: AssociateListComponent
       },
       {
-        path: 'associate-create',
+        path: 'create',
         component: AssociateCreateComponent,
       },
       {
-        path: 'associate-edit:/id',
+        path: 'edit/:id',
         component: AssociateEditComponent
       }
     ]

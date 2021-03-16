@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NotificationsService } from 'angular2-notifications';
+import { NgxNotificationDirection, NgxNotificationMsgService, NgxNotificationStatusMsg } from 'ngx-notification-msg';
 import CustomValidator from 'src/app/shared/helpers/custom-validator.helper';
 import ValidationHelper from 'src/app/shared/helpers/validation.helper';
+import { AuthenticationModel } from 'src/app/shared/models/auth/authentication.model';
 import { AuthenticationService } from 'src/app/shared/services/authenication.service';
 
 @Component({
@@ -24,9 +26,10 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private authService: AuthenticationService,
-    private notificationService: NotificationsService) { }
+    private  ngxNotificationMsgService: NgxNotificationMsgService) { }
 
   ngOnInit(): void {
+    this.createForm();
   }
 
   createForm(): void {
@@ -57,8 +60,16 @@ export class LoginComponent implements OnInit {
     this.isSubmitted = true;
     if (this.validateForm()) {
       this.authService.login(this.signInForm.getRawValue().email, this.signInForm.getRawValue().password).subscribe(res => {
+        this.authService.setAuthenticationModel(
+          res.data
+        );
         this.router.navigate(['/dashboard']);
-        this.notificationService.success('Notification', 'Login successful.')
+        this.ngxNotificationMsgService.open({
+          status: NgxNotificationStatusMsg.SUCCESS,
+          direction: NgxNotificationDirection.TOP_RIGHT,
+          header: 'Notification',
+          messages: ['Login successful.']
+       });
       });
     }
   }

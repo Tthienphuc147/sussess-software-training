@@ -6,12 +6,15 @@ import { EvaluationPeriodService } from 'src/app/shared/services/evaluation-peri
   templateUrl: './evaluation-period-list.component.html',
   styleUrls: ['./evaluation-period-list.component.scss']
 })
-export class EvaluationPeriodListComponent {
+export class EvaluationPeriodListComponent implements OnInit{
 
   dtoList = [];
   constructor(private evaluationPeriodService: EvaluationPeriodService) { }
+  ngOnInit(): void {
+    this.getAll();
+  }
 
-  getAll(event): void {
+  getAll(): void {
     this.evaluationPeriodService.getAllEvaluationPeriod().subscribe(res => {
       this.dtoList = res;
     })

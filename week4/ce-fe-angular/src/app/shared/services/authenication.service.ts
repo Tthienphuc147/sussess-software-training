@@ -26,7 +26,7 @@ export class AuthenticationService extends BaseService {
 
     // TODO open when implemented
     return this.post<AuthenticationModel>('api/login', {
-      username: usernameOrEmail,
+      email: usernameOrEmail,
       password: password
     });
   }
