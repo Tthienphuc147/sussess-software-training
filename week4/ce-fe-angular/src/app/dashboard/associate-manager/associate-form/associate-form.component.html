@@ -1,26 +1,22 @@
-<div class="form-content">
-    <div class="row mb-2">
-        <div class="col-sm-6">
-            <label>Full name</label>
-        </div>
-        <div class="col-sm-6">
-            <label>Full name</label>
-        </div>
-    </div>
+<div class="form-content" [formGroup]="associateForm" ngIf="associateForm">
     <div class="row mb-2">
         <div class="col-sm-6">
             <label class="mb-1">Full name</label>
-            <input type="text" pInputText formControlName="fullName" />
+            <input type="text" pInputText formControlName="fullName"  [class.is-invalid]="formErrors?.fullName"/>
+            <div class=" invalid-feedback" *ngIf="formErrors?.fullName">{{ formErrors?.fullName }}</div>
         </div>
         <div class="col-sm-6">
-            <label class="mb-1">Role</label>
-            <p-dropdown [options]="rolesData" formControlName="role" optionLabel="name"></p-dropdown>
+            <label class="mb-1">Password Generate</label>
+            <div class="password" [class.is-invalid]="formErrors?.password" (click)="generatePassword()">
+                {{ associateForm.getRawValue().password }}
+            </div>
         </div>
     </div>
     <div class="row mb-2">
         <div class="col-sm-6">
             <label class="mb-1">Email</label>
-            <input type="text" pInputText formControlName="email" />
+            <input type="text" pInputText formControlName="email" [class.is-invalid]="formErrors?.email"/>
+            <div class=" invalid-feedback" *ngIf="formErrors?.email">{{ formErrors?.email }}</div>
         </div>
         <div class="col-sm-6">
             <label>Birthday</label>
@@ -31,11 +27,25 @@
     <div class="row mb-2">
         <div class="col-sm-6">
             <label class="mb-1">Position group</label>
-            <p-dropdown [options]="groupsData" formControlName="role" optionLabel="name"></p-dropdown>
+            <p-dropdown (ngModelChange)="changePositionGroup($event)" [options]="groupsData" [class.is-invalid]="formErrors?.positionGroup" formControlName="positionGroup" optionLabel="name" ></p-dropdown>
+            <div class=" invalid-feedback" *ngIf="formErrors?.positionGroup">{{ formErrors?.positionGroup }}</div>
         </div>
         <div class="col-sm-6">
             <label class="mb-1">Position</label>
-            <p-dropdown [options]="positionsData" formControlName="role" optionLabel="name"></p-dropdown>
+            <p-dropdown [options]="positionDataFilter" [class.is-invalid]="formErrors?.position_id" formControlName="position_id" optionLabel="name"></p-dropdown>
+            <div class=" invalid-feedback" *ngIf="formErrors?.position_id">{{ formErrors?.position_id }}</div>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-sm-6">
+            <label class="mb-1">Role</label>
+            <p-dropdown [options]="rolesData" [class.is-invalid]="formErrors?.role_id" formControlName="role_id" optionLabel="name"></p-dropdown>
+            <div class="invalid-feedback" *ngIf="formErrors?.role_id">{{ formErrors?.role_id }}</div>
+        </div>
+        <div class="col-sm-6">
+            <label class="mb-1">Manager</label>
+            <p-dropdown [options]="managerData" [class.is-invalid]="formErrors?.manager_id" formControlName="manager_id" optionLabel="fullName"></p-dropdown>
+            <div class="invalid-feedback" *ngIf="formErrors?.manager_id">{{ formErrors?.manager_id }}</div>
         </div>
     </div>
 </div>

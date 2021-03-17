@@ -1,1 +1,30 @@
-<p>account-information works!</p>
+<div class="form-content" [formGroup]="accountForm" ngIf="accountForm">
+    <div class="row mb-2">
+        <div class="col-sm-6">
+            <label class="mb-1">Full name</label>
+            <input type="text" pInputText formControlName="fullName" disabled/>
+        </div>
+        <div class="col-sm-6">
+            <label class="mb-1">Email</label>
+            <input type="text" pInputText formControlName="email" disabled/>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-sm-6">
+            <label class="mb-1">Position group</label>
+            <input type="text" pInputText formControlName="positionGroup" disabled/>
+        </div>
+        <div class="col-sm-6">
+            <label class="mb-1">Position</label>
+            <input type="text" pInputText formControlName="position" disabled/>
+        </div>
+    </div>
+    <div class="row mb-2">
+        
+        <div class="col-sm-6">
+            <label>Birthday</label>
+            <p-calendar formControlName="birthday" disabled></p-calendar>
+        </div>
+    </div>
+
+</div>

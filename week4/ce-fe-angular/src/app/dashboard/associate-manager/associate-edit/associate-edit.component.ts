@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { AssociateFormComponent } from '../associate-form/associate-form.component';
 
 @Component({
   selector: 'app-associate-edit',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./associate-edit.component.scss']
 })
 export class AssociateEditComponent implements OnInit {
-
-  constructor() { }
+  id: string;
+  @ViewChild('form', {static: true}) form : AssociateFormComponent;
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.params['id'];
   }
+
+  save(): void {
+    this.form.submitForm();
+  }
+
 
 }

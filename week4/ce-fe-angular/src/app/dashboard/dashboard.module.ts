@@ -15,13 +15,15 @@ import { CompetencyEditComponent } from './competency-manager/competency-edit/co
 import { CompetencyFormComponent } from './competency-manager/competency-form/competency-form.component';
 import { CompetencyListComponent } from './competency-manager/competency-list/competency-list.component';
 import { EvaluationMemberListComponent } from './elvaluation-member-manager/evaluation-member-list/evaluation-member-list.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
   declarations: [AccountInformationComponent, AssociateManagerComponent, CompetencyManagerComponent, CompetencyMappingManagerComponent, EvaluationManagerComponent, EvaluationPeriodManagerComponent, MemberManagerComponent, ElvaluationMemberManagerComponent, CompetencyCreateComponent, CompetencyEditComponent, CompetencyFormComponent, CompetencyListComponent, EvaluationMemberListComponent],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    SharedModule
   ]
 })
 export class DashboardModule { }

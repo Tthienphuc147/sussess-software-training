@@ -16,7 +16,7 @@ export class AssociateService extends BaseService {
     return this.get('api/associate/get-all');
   }
 
-  getDetailAssociate(id: string): Observable<any> {
+  getDetailAssociate(id: number): Observable<any> {
     return this.get(`api/associate/${id}`);
   }
 
