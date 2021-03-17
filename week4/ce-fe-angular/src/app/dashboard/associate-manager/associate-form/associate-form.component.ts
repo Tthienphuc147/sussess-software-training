@@ -4,6 +4,7 @@ import { NgxNotificationDirection, NgxNotificationMsgService, NgxNotificationSta
 import { forkJoin, Observable } from 'rxjs';
 import { ERole } from 'src/app/shared/enums/role.enum';
 import CustomValidator from 'src/app/shared/helpers/custom-validator.helper';
+import Utils from 'src/app/shared/helpers/utils.helper';
 import ValidationHelper from 'src/app/shared/helpers/validation.helper';
 import { Associate } from 'src/app/shared/models/associate/associate.model';
 import { AssociateService } from 'src/app/shared/services/associate.service';
@@ -89,6 +90,10 @@ export class AssociateFormComponent implements OnInit {
     if (this.isSubmitted) {
       this.validateForm();
     }
+  }
+
+  generatePassword(): void {
+    this.associateForm.get('password').patchValue(Utils.regenerativePassword); 
   }
 
   changePositionGroup(event): void {
