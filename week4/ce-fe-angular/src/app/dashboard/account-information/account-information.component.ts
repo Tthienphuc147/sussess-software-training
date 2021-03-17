@@ -34,10 +34,9 @@ export class AccountInformationComponent implements OnInit {
     this.accountForm = this.fb.group({
       fullName:[this.associate.fullName],
       email:[this.associate.email],
-      position_id: [this.associate.position_id],
+      position: [this.associate.position.name],
       birthday: [this.associate.birthday ? new Date(this.associate.birthday): null],
-      position: [],
-      positionGroup: []
+      positionGroup: [this.associate.positionGroup.name]
     })
   }
 

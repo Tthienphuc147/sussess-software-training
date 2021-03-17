@@ -69,7 +69,7 @@ export class AssociateFormComponent implements OnInit {
       fullName: [this.associate.fullName, [CustomValidator.required]],
       email: [this.associate.email, [CustomValidator.required, CustomValidator.email]],
       position_id: [this.associate.position_id, [CustomValidator.required]],
-      positionGroup: [this.associate.positionGroup, [CustomValidator.required]],
+      positionGroup: [this.associate.positionGroup.id, [CustomValidator.required]],
       role_id: [this.associate.role_id, [CustomValidator.required]],
       manager_id: [this.associate.manager_id],
       birthday: [this.associate.birthday ? new Date(this.associate.birthday): null],

@@ -1,1 +1,45 @@
-<p>competency-list works!</p>
+<section class="header-page">
+
+</section>
+<section class="content-page">
+    <div class="table">
+        <p-table [value]="competencyData" #dt sortMode="single" [rowHover]="true" [responsive]="true" [scrollable]="true"
+            scrollHeight="530px" (onLazyLoad)="getAll()">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" *ngFor="let item of competencyData;let i =index">
+                <tr class="competency-common">
+                    <td colspan="3" class="text-left font-weight-bold">
+                      {{item.competencyGroup && item.competencyGroup.name }}
+                    </td>
+                  </tr>
+                  <tr  *ngFor="let competency of item.itemData;let j =index">
+                    <td class="text-left">
+                      {{ competency.name }}
+                    </td>
+                    <td class="text-left">
+                      {{ competency.description }}
+                    </td>
+                    <td>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <i [routerLink]="'/competency-manager/edit/'+ item.id"
+                                class="fa fa-eye table-icon--view cursor-pointer" aria-hidden="true"></i>
+                        </div>
+                    </td>
+                  </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td [attr.colspan]="3">
+                        No records found
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</section>

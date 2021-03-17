@@ -4,7 +4,14 @@ export class Associate {
     email: string;
     position_id: string;
     manager_id: string;
-    positionGroup: string;
+    positionGroup: {
+        id: string;
+        name: string;
+    };
+    position: {
+        id: string;
+        name: string;
+    }
     password: string;
     birthday: Date;
 }
