@@ -1,0 +1,94 @@
+:host ::ng-deep {
+    .ant-spin-spinning {
+      max-height: unset !important;
+    }
+    .ant-table-body {
+      overflow-x: auto;
+      table {
+        border: solid 1px #e8e8e8;
+        border-bottom: none;
+        border-right: none;
+        td,
+        th {
+          border-bottom: solid 1px #e8e8e8;
+          border-right: solid 1px #e8e8e8;
+        }
+        .manipulation {
+          background-color: white;
+        }
+      }
+  
+      &::-webkit-scrollbar {
+        -webkit-appearance: none;
+        height: 10px;
+      }
+      
+      &::-webkit-scrollbar-track {
+          background-color: rgba(57,57,57, .1);
+          border-radius: 6px;
+      }
+      
+      &::-webkit-scrollbar-thumb {
+          border-radius: 6px;
+          background-color: rgba(156, 156, 156, .6);
+      }
+    }
+  
+    .anticon {
+      vertical-align: 0em;
+    }
+  }
+  
+  .ant-spin-nested-loading {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 9999;
+  }
+  
+  [nz-button] {
+    margin-right: 8px;
+    margin-bottom: 12px;
+  }
+  
+  [nz-button] {
+    margin-right: 8px;
+    margin-bottom: 12px;
+  }
+  
+  nz-header,
+  nz-footer {
+    background: #7dbcea;
+    color: #fff;
+  }
+  
+  nz-footer {
+    line-height: 1.5;
+  }
+  
+  nz-sider {
+    background: #3ba0e9;
+    color: #fff;
+    line-height: 120px;
+  }
+  
+  nz-content {
+    background: rgba(16, 142, 233, 1);
+    color: #fff;
+    min-height: 120px;
+    line-height: 120px;
+  }
+  
+  nz-layout {
+    margin-bottom: 48px;
+  }
+  
+  nz-layout:last-child {
+    margin: 0;
+  }
+  nz-spin {
+    z-index: 9999;
+  }
+  
