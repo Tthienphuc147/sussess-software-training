@@ -18,7 +18,8 @@ import { EditorModule } from 'primeng/editor';
 import { CalendarModule } from 'primeng/calendar';
 import { NgxNotificationMsgModule } from 'ngx-notification-msg';
 import { LoginGuard } from './guards/login.guard';
-
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 @NgModule({
   declarations: [],
@@ -38,7 +39,9 @@ import { LoginGuard } from './guards/login.guard';
     DropdownModule,
     EditorModule,
     CalendarModule,
-    NgxNotificationMsgModule
+    NgxNotificationMsgModule,
+    NzLayoutModule,
+    NzIconModule
   ],
   exports: [
     FormsModule,
@@ -53,7 +56,9 @@ import { LoginGuard } from './guards/login.guard';
     TabViewModule,
     DropdownModule,
     EditorModule,
-    CalendarModule
+    CalendarModule,
+    NzLayoutModule,
+    NzIconModule
   ],
   providers: [
     ApplicationService,

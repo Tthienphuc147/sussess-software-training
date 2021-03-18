@@ -23,20 +23,21 @@ export class AccountInformationComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.currentUser = this.authService.getAuthenticationModel();
-    this.associateService.getDetailAssociate(this.currentUser.id).subscribe(res => {
-      this.associate = res;
-      this.createForm();
-    })
+    // this.currentUser = this.authService.getAuthenticationModel();
+    // this.associateService.getDetailAssociate(this.currentUser.id).subscribe(res => {
+    //   this.associate = res;
+    //   this.createForm();
+    // })
+    this.createForm();
   }
 
   createForm() {
     this.accountForm = this.fb.group({
       fullName:[this.associate.fullName],
       email:[this.associate.email],
-      position: [this.associate.position.name],
+      position: [this.associate.position && this.associate.position.name],
       birthday: [this.associate.birthday ? new Date(this.associate.birthday): null],
-      positionGroup: [this.associate.positionGroup.name]
+      positionGroup: [this.associate.positionGroup && this.associate.positionGroup.name]
     })
   }
 

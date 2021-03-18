@@ -78,7 +78,7 @@ export class LoaderInterceptor implements HttpInterceptor {
               direction: NgxNotificationDirection.TOP_RIGHT,
               header: 'Error',
               delay:4000,
-              messages: [err.error && err.error && err.error.error.message],
+              messages: [err.error && err.error && err.error.error && err.error.error.message],
            });
             this.removeRequest(req);
             observer.error(err);

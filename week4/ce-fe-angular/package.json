@@ -33,6 +33,7 @@
     "moment": "^2.29.1",
     "ng-block-ui": "^2.1.8",
     "ng-sidebar": "^9.3.0",
+    "ng-zorro-antd": "^11.2.0",
     "ng2-file-upload": "^1.4.0",
     "ngx-cookie-service": "^3.0.4",
     "ngx-notification-msg": "^0.2.0",

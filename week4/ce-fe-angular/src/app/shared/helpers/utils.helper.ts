@@ -2,11 +2,8 @@ import { Observable } from 'rxjs';
 import { merge } from 'lodash';
 import { environment } from 'src/environments/environment';
 import DateTimeConvertHelper from './datetime-convert-helper';
-import * as EXIF from 'src/assets/js/exif.js';
-import { FileService } from '../services/file.service';
 export default class Utils {
   constructor(
-    public fileService: FileService
   ) { }
   static capitalizeFirstLetter(text) {
     return text ? text.charAt(0).toUpperCase() + text.slice(1) : '';
@@ -246,97 +243,7 @@ export default class Utils {
     return address;
   }
 
-  static resizeFile(
-    data: string | ArrayBuffer,
-    filename: string
-  ): Observable<File> {
-    const maxSize = 1024;
-    return new Observable<File>(observer => {
-      const img = new Image();
-      img.onload = () => {
-        EXIF.getData(img, function () {
-          const orientation = EXIF.getTag(this, 'Orientation');
-          const elem = document.createElement('canvas');
-          let scaleFactor: any;
-          if (img.width > maxSize) {
-            scaleFactor = maxSize / img.width;
-          } else if (img.height > maxSize) {
-            scaleFactor = maxSize / img.height;
-          } else {
-            scaleFactor = 1;
-          }
-          if (4 < orientation && orientation < 9) {
-            elem.width = img.height * scaleFactor;
-            elem.height = img.width * scaleFactor;
-          } else {
-            elem.width = img.width * scaleFactor;
-            elem.height = img.height * scaleFactor;
-          }
-          const ctx = elem.getContext('2d') as CanvasRenderingContext2D;
-          switch (orientation) {
-            case 2:
-              ctx.transform(-1, 0, 0, 1, img.width * scaleFactor, 0);
-              break;
-            case 3:
-              ctx.transform(
-                -1,
-                0,
-                0,
-                -1,
-                img.width * scaleFactor,
-                img.height * scaleFactor
-              );
-              break;
-            case 4:
-              ctx.transform(1, 0, 0, -1, 0, img.height * scaleFactor);
-              break;
-            case 5:
-              ctx.transform(0, 1, 1, 0, 0, 0);
-              break;
-            case 6:
-              ctx.transform(0, 1, -1, 0, img.height * scaleFactor, 0);
-              break;
-            case 7:
-              ctx.transform(
-                0,
-                -1,
-                -1,
-                0,
-                img.height * scaleFactor,
-                img.width * scaleFactor
-              );
-              break;
-            case 8:
-              ctx.transform(0, -1, 1, 0, 0, img.width * scaleFactor);
-              break;
-            default:
-              break;
-          }
-          ctx.drawImage(
-            img,
-            0,
-            0,
-            img.width * scaleFactor,
-            img.height * scaleFactor
-          );
-          ctx.canvas.toBlob(
-            blob => {
-              observer.next(
-                new File([blob], filename, {
-                  type: 'image/jpeg',
-                  lastModified: Date.now()
-                })
-              );
-              observer.complete();
-            },
-            'image/jpeg',
-            1
-          );
-        });
-      };
-      img.src = data as any;
-    });
-  }
+  
 
   static createFilterParam(filter: any): any {
     for (const key in filter) {

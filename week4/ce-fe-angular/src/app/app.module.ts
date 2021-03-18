@@ -23,6 +23,10 @@ import { MemberManagerModule } from './dashboard/member-manager/member-manager.m
 import { PageNotFoundComponent } from './exception/page-not-found/page-not-found.component';
 import { PageNotPermissionComponent } from './exception/page-not-permission/page-not-permission.component';
 import { SimpleNotificationsModule } from 'angular2-notifications';
+import vi from '@angular/common/locales/en';
+import { registerLocaleData } from '@angular/common';
+import { NZ_I18N, vi_VN } from 'ng-zorro-antd/i18n';
+registerLocaleData(vi);
 
 @NgModule({
   declarations: [
@@ -54,7 +58,8 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
     HttpClientModule,
     SpinnerService,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
-    { provide: LocationStrategy, useClass: HashLocationStrategy }
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    { provide: NZ_I18N, useValue: vi_VN }
   ],
   bootstrap: [AppComponent]
 })
