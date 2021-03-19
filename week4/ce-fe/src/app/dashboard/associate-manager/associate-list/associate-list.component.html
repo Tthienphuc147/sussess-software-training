@@ -1,0 +1,59 @@
+<section class="header-page">
+
+</section>
+<section class="content-page">
+    <div class="table">
+        <!-- <p-table [value]="dtoList" #dt sortMode="single" [rowHover]="true" [responsive]="true" [scrollable]="true"
+            scrollHeight="530px" (onLazyLoad)="getAll()">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>No</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Birthday</th>
+                    <th>Role</th>
+                    <th>Position</th>
+                    <th>Action</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+                <tr>
+                    <td>{{ rowIndex + 1}}</td>
+                    <td>
+                        {{ item.full_name }}
+                    </td>
+                    <td>
+                        {{ item.email }}
+                    </td>
+                    <td>
+                        {{ item.birthday | date:"dd/MM/yyyy" }}
+                    </td>
+                    <td>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <div class="associate-role" [ngClass]="{ 'associate-role--member': item.role.id === eRole.MEMBER_ROLE,
+                          'associate-role--manager': item.role.id === eRole.MANAGER_ROLE}">
+                                {{ item.role && item.role.name }}
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        {{ item.position && item.position.name }}
+                    </td>
+                    <td>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <i [routerLink]="'/associate-manager/edit/'+ item.id"
+                                class="fa fa-eye table-icon--view cursor-pointer" aria-hidden="true"></i>
+                        </div>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td [attr.colspan]="7" >
+                        No records found
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table> -->
+    </div>
+</section>
