@@ -7,10 +7,11 @@ import { AssociateEditComponent } from './associate-edit/associate-edit.componen
 import { AssociateListComponent } from './associate-list/associate-list.component';
 import { AssociateFormComponent } from './associate-form/associate-form.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { AssociateManagerComponent } from './associate-manager.component';
 
 
 @NgModule({
-  declarations: [AssociateCreateComponent, AssociateEditComponent, AssociateListComponent, AssociateFormComponent],
+  declarations: [AssociateCreateComponent, AssociateEditComponent, AssociateListComponent, AssociateFormComponent, AssociateManagerComponent],
   imports: [
     CommonModule,
     AssociateManagerRoutingModule,

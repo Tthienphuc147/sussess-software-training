@@ -7,11 +7,7 @@ import { AuthenticationService } from './services/authenication.service';
 import { SpinnerService } from './services/spinner.service';
 import { NgxNotificationMsgModule } from 'ngx-notification-msg';
 import { LoginGuard } from './guards/login.guard';
-import { NzLayoutModule } from 'ng-zorro-antd/layout';
-import { NzIconModule } from 'ng-zorro-antd/icon';
-import { NzMenuModule } from 'ng-zorro-antd/menu';
-import { IconsProviderModule } from '../icons-provider.module';
-
+import { AntdModule } from './antd.module';
 @NgModule({
   declarations: [],
   imports: [
@@ -20,18 +16,15 @@ import { IconsProviderModule } from '../icons-provider.module';
     ReactiveFormsModule,
     ComponentModule,
     NgxNotificationMsgModule,
-    NzLayoutModule,
-    NzMenuModule,
-    NzIconModule,
+    AntdModule,
   ],
   exports: [
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     ComponentModule,
-    IconsProviderModule,
-    NzLayoutModule,
-    NzMenuModule,
-    NzIconModule,
+    NgxNotificationMsgModule,
+    AntdModule,
   ],
   providers: [
     ApplicationService,

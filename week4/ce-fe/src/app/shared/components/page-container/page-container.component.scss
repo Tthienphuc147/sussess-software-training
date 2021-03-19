@@ -1,0 +1,26 @@
+:host ::ng-deep [header] {
+    background-color: #fff;
+    padding: 7px 15px;
+    height: 45px;
+    border: 0;
+    border-bottom: 1px solid rgb(228, 228, 228);
+    border-style: dashed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1 {
+        color: #707070;
+        font-size: 20px;
+    }
+    .btn-area {
+        .btn-ss--primary {
+            background-color: #56a984;
+            color:#fff;
+        }
+    }
+ }
+ :host ::ng-deep [content] {
+    background-color: #fff;
+    padding: 15px;
+    min-height: 80vh;
+ }  

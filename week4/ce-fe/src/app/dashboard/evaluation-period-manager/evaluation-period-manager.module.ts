@@ -7,10 +7,11 @@ import { EvaluationPeriodEditComponent } from './evaluation-period-edit/evaluati
 import { EvaluationPeriodFormComponent } from './evaluation-period-form/evaluation-period-form.component';
 import { EvaluationPeriodListComponent } from './evaluation-period-list/evaluation-period-list.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { EvaluationPeriodManagerComponent } from './evaluation-period-manager.component';
 
 
 @NgModule({
-  declarations: [EvaluationPeriodCreateComponent, EvaluationPeriodEditComponent, EvaluationPeriodFormComponent, EvaluationPeriodListComponent],
+  declarations: [EvaluationPeriodManagerComponent,EvaluationPeriodCreateComponent, EvaluationPeriodEditComponent, EvaluationPeriodFormComponent, EvaluationPeriodListComponent],
   imports: [
     CommonModule,
     EvaluationPeriodManagerRoutingModule,

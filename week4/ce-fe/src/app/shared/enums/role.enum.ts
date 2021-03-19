@@ -1,5 +1,5 @@
 export enum ERole {
-    ADMIN_ROLE = 1,
-    MEMBER_ROLE = 2,
-    MANAGER_ROLE = 3
+    ADMIN_ROLE = 'ADMIN_ROLE',
+    MEMBER_ROLE = 'MEMBER_ROLE',
+    MANAGER_ROLE = 'MANAGER_ROLE'
 }

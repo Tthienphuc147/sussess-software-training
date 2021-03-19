@@ -37,14 +37,21 @@ export class AuthenticationService extends BaseService {
   }
 
   public getAuthenticationModel(): AuthenticationModel {
-    if (!window.localStorage[localStorageKey]) {
-      return null;
-    }
-    try {
-      return JSON.parse(window.localStorage[localStorageKey]);
-    } catch (error) {
-      return null;
-    }
+    // if (!window.localStorage[localStorageKey]) {
+    //   return null;
+    // }
+    // try {
+    //   let result = JSON.parse(window.localStorage[localStorageKey]) as AuthenticationModel;
+    //   result.role = result.role === '1' ? 'ADMIN_ROLE' : result.role === '2' ? 'MEMBER_ROLE' : 'MANAGER_ROLE';
+    //   //TODO role temp
+    //   result.role = 'ADMIN_ROLE';
+    //   return result;
+    // } catch (error) {
+    //   return null;
+    // }
+    let result = new AuthenticationModel();
+    result.role = 'ADMIN_ROLE';
+    return result;
   }
   public logOut() {
     localStorage.clear();

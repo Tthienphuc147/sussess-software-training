@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import './theme-style.scss';
+*  {
+  font-family: 'Roboto', sans-serif;
+}
+//button 
+.btn-ss {
+  font-size: 12px;
+  border-radius: 2px;
+  padding: 4px 6px;
+  font-weight: 400;
+}

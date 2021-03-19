@@ -17,7 +17,7 @@ registerLocaleData(vi);
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent  
+    LoginComponent
   ],
   imports: [
     CommonModule,

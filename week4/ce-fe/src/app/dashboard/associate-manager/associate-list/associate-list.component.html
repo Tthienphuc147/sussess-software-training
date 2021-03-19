@@ -1,24 +1,28 @@
-<section class="header-page">
-
-</section>
-<section class="content-page">
-    <div class="table">
-        <!-- <p-table [value]="dtoList" #dt sortMode="single" [rowHover]="true" [responsive]="true" [scrollable]="true"
-            scrollHeight="530px" (onLazyLoad)="getAll()">
-            <ng-template pTemplate="header">
-                <tr>
-                    <th>No</th>
-                    <th>Full Name</th>
-                    <th>Email</th>
-                    <th>Birthday</th>
-                    <th>Role</th>
-                    <th>Position</th>
-                    <th>Action</th>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
-                <tr>
-                    <td>{{ rowIndex + 1}}</td>
+<app-page-container>
+    <section header>
+        <h1 class="mb-0">Associate Management</h1>
+        <div class="btn-area">
+            <div class="btn btn-sm btn-ss btn-ss--primary">Create Associate</div>
+        </div>
+    </section>
+  
+    <section content>
+        <div class="table-content">
+            <nz-table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Birthday</th>
+                        <th>Role</th>
+                        <th>Position</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of dtoList;let i = index">
+                    <td>{{ i + 1}}</td>
                     <td>
                         {{ item.full_name }}
                     </td>
@@ -46,14 +50,9 @@
                         </div>
                     </td>
                 </tr>
-            </ng-template>
-            <ng-template pTemplate="emptymessage">
-                <tr>
-                    <td [attr.colspan]="7" >
-                        No records found
-                    </td>
-                </tr>
-            </ng-template>
-        </p-table> -->
-    </div>
-</section>
+                </tbody>
+              </nz-table>
+        </div>
+    </section>
+  </app-page-container>
+  

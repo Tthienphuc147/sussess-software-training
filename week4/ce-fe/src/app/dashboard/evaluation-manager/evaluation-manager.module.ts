@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { EvaluationManagerRoutingModule } from './evaluation-manager-routing.module';
 import { EvaluationMakeResultComponent } from './evaluation-make-result/evaluation-make-result.component';
+import { EvaluationListComponent } from './evaluation-list/evaluation-list.component';
 
 
 @NgModule({
-  declarations: [EvaluationMakeResultComponent],
+  declarations: [EvaluationMakeResultComponent, EvaluationListComponent],
   imports: [
     CommonModule,
     EvaluationManagerRoutingModule
