@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API_ENDPOINT: 'https://test.youngpinejobs.com/',//api url
+  API_ENDPOINT: 'https://127.0.0.1:8000/',//api url
 };
 
 /*
