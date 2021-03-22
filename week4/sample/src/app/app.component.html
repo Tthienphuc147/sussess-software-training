@@ -1,0 +1,58 @@
+<div class="content p-4">
+  <h3>List quotes</h3>
+  <hr class="my-3">
+  <nz-table #basicTable [nzData]="quotesData" nzShowSizeChanger >
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Date</th>
+        <th>Content</th>
+        <th>Author</th>
+        <th class="text-center">HightLight</th>
+        <th class="text-center">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data;let i = index">
+        <td>{{i + 1}}</td>
+         <td>{{data?.created_at | date:"dd/MM/yyyy" }}</td>
+        <td>
+          <div class="d-flex justify-content-between align-items-center">
+            <span>
+              {{(data.content.length>80)? (data.content | slice:0:80)+'...':(data.content)}}
+            </span>
+            <i nz-icon (click)="showModal(data.content)" nzType="exclamation-circle" class="cursor-pointer" nzTheme="outline"></i>
+          </div>
+        </td>
+        <td>{{data.author}}</td>
+        <td class="text-center is-checked"><i nz-icon nzType="check-circle" nzTheme="outline" *ngIf="data.isHightLight"></i></td>
+        <td>
+          <div class="d-flex justify-content-center align-items-center">
+            <div>
+              <button
+              class="button-approve"
+            nz-popconfirm
+        nzPopconfirmTitle="Are you sure change this quotes?"
+        (nzOnConfirm)="confirm(data)"
+        (nzOnCancel)="cancel()"
+        nzPopconfirmPlacement="bottom"
+        nz-button>
+      </button>
+      <nz-switch nzSize="small" [(ngModel)]="data.is_approve"></nz-switch>
+            </div>
+            
+            
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Quotes Content" (nzOnCancel)="handleCancel()">
+  <ng-container *nzModalContent>
+    <p>{{content}}</p>
+  </ng-container>
+  <div *nzModalFooter class="d-flex justify-content-center align-items-center">
+    <button class="btn btn-sm btn-primary" nz-button nzType="default" (click)="handleCancel()">CLOSE</button>
+  </div>
+</nz-modal>
