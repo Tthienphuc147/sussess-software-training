@@ -17,6 +17,6 @@ export class MasterDataService extends BaseService {
   }
 
   getAllPositionGroup(): Observable<any> {
-    return this.get('api/position-group/get-all');
+    return this.get('api/postion-group/get-all');
   }
 }

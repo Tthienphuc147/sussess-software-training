@@ -5,5 +5,12 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class SpinnerService {
-  public isLoading = new BehaviorSubject(false);
+  public showSpinner: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  constructor() { }
+  public show(): void {
+    this.showSpinner.next(true);
+  }
+  public hide(): void {
+    this.showSpinner.next(false);
+  }
 }

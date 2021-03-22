@@ -1,1 +1,14 @@
-<app-associate-form #form [id]="id"></app-associate-form>
+
+
+<app-page-container>
+    <section header>
+        <h1>Associate Information</h1>
+        <div class="btn-area">
+            <div class="btn btn-sm btn-ss btn-ss--primary" (click)="save()">Save</div>
+        </div>
+    </section>
+  
+    <section content>
+        <app-associate-form #form [id]="id"></app-associate-form>
+    </section>
+  </app-page-container>

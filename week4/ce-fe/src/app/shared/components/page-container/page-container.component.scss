@@ -1,26 +1,111 @@
 :host ::ng-deep [header] {
-    background-color: #fff;
-    padding: 7px 15px;
-    height: 45px;
-    border: 0;
-    border-bottom: 1px solid rgb(228, 228, 228);
-    border-style: dashed;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    h1 {
-        color: #707070;
-        font-size: 20px;
+  background-color: #fff;
+  padding: 7px 15px;
+  height: 45px;
+  border: 0;
+  border-bottom: 1px solid rgb(228, 228, 228);
+  border-style: dashed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h1 {
+    color: #707070;
+    font-size: 20px;
+  }
+  .btn-area {
+    .btn-ss{
+      &--primary {
+        background-color: #56a984;
+        color: #fff;
+      }
+      &--secondary {
+        background-color: #eb7506;
+        color: rgb(179, 83, 4);
+      }
     }
-    .btn-area {
-        .btn-ss--primary {
-            background-color: #56a984;
-            color:#fff;
+  }
+}
+:host ::ng-deep [content] {
+  background-color: #fff;
+  padding: 15px;
+  min-height: 80vh;
+  .table-area {
+    .col {
+        &-no--width {
+            width: 4rem;
+            text-align: center;
+        }
+        &-role--width {
+            width: 10rem;
+            text-align: center;
         }
     }
- }
- :host ::ng-deep [content] {
-    background-color: #fff;
-    padding: 15px;
-    min-height: 80vh;
- }  
+    .eva-status {
+      width: 120px;
+      padding: 3px 4px;
+      border-radius: 2px;
+      font-weight: bold;
+      &--new {
+        background-color: #f29d18;
+        color: #fff;
+      }
+      &--evaluated {
+        background-color: #d7f7d6;
+        color: #000;
+      }
+      &--waiting {
+        background-color: #73a1ea;
+        color: #fff;
+      }
+      &--approved {
+        background-color: #388b59;
+        color: #fff;
+      }
+    }
+    .associate-role {
+      width: 80px;
+      padding: 3px 4px;
+      border-radius: 3px;
+      font-weight: bold;
+      text-align: center;
+      &--manager {
+        background-color: #b7e1f9;
+        color: #0c84ca;
+      }
+      &--member {
+        background-color: #bde2d2;
+    color: #12824c;
+      }
+    }
+    .table-icon {
+      &--view {
+        color: #f1870d;
+      }
+      &--review {
+        color: #1f48ce;
+      }
+      &--info {
+        color: #c0c0c0;
+      }
+    }
+    .competency-common {
+        background-color: #d8d8d8;
+    }
+  }
+  .form-content {
+    .label-input {
+        font-size:14px;
+        font-weight:bold;
+        color: #5d5d5d;
+    }
+    input {
+        height: 2rem;
+        background-color: #f4f8f7;
+        border: none;
+        outline: none;
+        &:focus {
+          border: 1px solid #DDEEE6 !important;
+        }
+    }
+  }
+}

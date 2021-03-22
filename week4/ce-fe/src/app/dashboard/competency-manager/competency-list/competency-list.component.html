@@ -8,13 +8,14 @@
     </section>
   
     <section content>
-        <div class="table-content">
-            <nz-table>
+        <div class="table-area">
+            <nz-table [nzData]="competencyData" nzShowPagination
+            nzShowSizeChanger>
                 <thead>
                     <tr>
                         <th>Name</th>
                         <th>Description</th>
-                        <th>Action</th>
+                        <th class="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody *ngFor="let item of competencyData;let i =index">

@@ -69,6 +69,6 @@
 <nz-dropdown-menu #menu="nzDropdownMenu">
   <ul nz-menu>
     <li nz-menu-item class="d-flex align-items-center"><i nz-icon nzType="user" nzTheme="outline" class="mr-2"></i>Account Information</li>
-    <li nz-menu-item class="d-flex align-items-center"><i nz-icon nzType="logout" nzTheme="outline" class="mr-2"></i>Logout</li>
+    <li nz-menu-item class="d-flex align-items-center" (click)="logOut()"><i nz-icon nzType="logout" nzTheme="outline" class="mr-2"></i>Logout</li>
   </ul>
 </nz-dropdown-menu>

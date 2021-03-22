@@ -13,9 +13,9 @@ const routes: Routes = [
   {
     path: 'dashboard',
     loadChildren: () => import('./dashboard/dashboard.module').then(mod => mod.DashboardModule),
-    // canActivate: [
-    //   LoginGuard,
-    // ],
+    canActivate: [
+      LoginGuard,
+    ],
   },
   {
     path: 'page-not-found',

@@ -9,30 +9,30 @@
     </section>
   
     <section content>
-        <div class="form-content" [formGroup]="accountForm">
+        <div class="form-content" [formGroup]="accountForm" *ngIf="accountForm">
             <div class="row mb-2">
                 <div class="col-sm-6 d-flex flex-column">
-                    <label class="mb-1">Full name</label>
+                    <label class="label-input mb-1">Full name</label>
                     <input nz-input formControlName="fullName" disabled />
                 </div>
                 <div class="col-sm-6 d-flex flex-column">
-                    <label class="mb-1">Email</label>
+                    <label class="label-input mb-1">Email</label>
                     <input nz-input formControlName="email" disabled />
                 </div>
             </div>
             <div class="row mb-2">
                 <div class="col-sm-6 d-flex flex-column">
-                    <label class="mb-1">Position Group</label>
+                    <label class="label-input mb-1">Position Group</label>
                      <input nz-input formControlName="positionGroup" disabled />
                 </div>
                 <div class="col-sm-6 d-flex flex-column">
-                    <label class="mb-1">Position</label>
+                    <label class="label-input mb-1">Position</label>
                     <input nz-input formControlName="position" disabled />
                 </div>
             </div>
             <div class="row mb-2">
                 <div class="col-sm-6 d-flex flex-column">
-                    <label>Birthday</label>
+                    <label class="label-input">Birthday</label>
                     <input nz-input formControlName="birthday" disabled />
                 </div>
             </div>

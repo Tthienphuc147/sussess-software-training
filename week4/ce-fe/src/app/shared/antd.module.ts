@@ -5,6 +5,9 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { IconsProviderModule } from '../icons-provider.module';
 import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzResultModule } from 'ng-zorro-antd/result';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 @NgModule({
   declarations: [],
   imports: [
@@ -13,7 +16,10 @@ import { NzTableModule } from 'ng-zorro-antd/table';
     NzIconModule,
     IconsProviderModule,
     NzDropDownModule,
-    NzTableModule
+    NzTableModule,
+    NzSelectModule,
+    NzDatePickerModule,
+    NzResultModule
   ],
   exports: [
     NzLayoutModule,
@@ -21,7 +27,10 @@ import { NzTableModule } from 'ng-zorro-antd/table';
     NzIconModule,
     IconsProviderModule,
     NzDropDownModule,
-    NzTableModule
+    NzTableModule,
+    NzSelectModule,
+    NzDatePickerModule,
+    NzResultModule
   ]
 })
 export class AntdModule { }

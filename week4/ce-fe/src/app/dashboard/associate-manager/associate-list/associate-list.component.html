@@ -7,27 +7,28 @@
     </section>
   
     <section content>
-        <div class="table-content">
-            <nz-table>
+        <div class="table-area">
+            <nz-table [nzData]="associateList" nzShowPagination
+            nzShowSizeChanger>
                 <thead>
                     <tr>
-                        <th>No</th>
+                        <th class="col-no--width">No</th>
                         <th>Full Name</th>
                         <th>Email</th>
                         <th>Birthday</th>
-                        <th>Role</th>
+                        <th class="col-role--width">Role</th>
                         <th>Position</th>
-                        <th>Action</th>
+                        <th class="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let item of dtoList;let i = index">
-                    <td>{{ i + 1}}</td>
+                  <tr *ngFor="let item of associateList;let i = index">
+                    <td class="text-center">{{ i + 1}}</td>
                     <td>
                         {{ item.full_name }}
                     </td>
                     <td>
-                        {{ item.email }}
+                        <span class="link">{{ item.email }}</span>
                     </td>
                     <td>
                         {{ item.birthday | date:"dd/MM/yyyy" }}
@@ -45,8 +46,7 @@
                     </td>
                     <td>
                         <div class="d-flex justify-content-center align-items-center">
-                            <i [routerLink]="'/associate-manager/edit/'+ item.id"
-                                class="fa fa-eye table-icon--view cursor-pointer" aria-hidden="true"></i>
+                            <i nz-icon nzType="eye" nzTheme="outline"  class="table-icon--view pointer" [routerLink]="['/dashboard/associate-manager/edit/',item?.id]"></i>
                         </div>
                     </td>
                 </tr>

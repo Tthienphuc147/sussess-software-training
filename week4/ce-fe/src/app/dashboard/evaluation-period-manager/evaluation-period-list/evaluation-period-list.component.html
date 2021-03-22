@@ -7,16 +7,17 @@
     </section>
   
     <section content>
-        <div class="table-content">
-            <nz-table>
+        <div class="table-area">
+            <nz-table [nzData]="dtoList" nzShowPagination
+            nzShowSizeChanger>
                 <thead>
                     <tr>
-                        <th>No</th>
+                        <th class="col-no--width">No</th>
                         <th>Name Period</th>
                         <th>From Date</th>
                         <th>To Date</th>
                         <th>Description</th>
-                        <th>Action</th>
+                        <th class="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>

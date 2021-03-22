@@ -8,6 +8,10 @@ export class Associate {
         id: string;
         name: string;
     };
+    role : {
+        id: string;
+        name: string;
+    }
     position: {
         id: string;
         name: string;

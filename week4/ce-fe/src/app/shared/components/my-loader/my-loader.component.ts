@@ -8,15 +8,7 @@ import { SpinnerService } from '../../services/spinner.service';
   styleUrls: ['./my-loader.component.scss']
 })
 export class MyLoaderComponent implements OnInit {
-
-  loading: boolean;
-
   constructor(private spinnerService: SpinnerService) {
-
-    this.spinnerService.isLoading.subscribe((v) => {
-      this.loading = v;
-    });
-
   }
   ngOnInit() {
   }

@@ -10,4 +10,50 @@
   border-radius: 2px;
   padding: 4px 6px;
   font-weight: 400;
+  &--primary {
+    background-color: #56a984;
+    color: #fff;
+  }
+  &--secondary {
+    background-color: #eb7506;
+    color: rgb(230, 230, 230);
+  }
+}
+
+.pointer{
+  cursor: pointer;
+  outline: none;
+}
+
+.invalid-feedback{
+  line-height: 1.5;
+  font-size: 90%;
+  display: block;
+  width: 100%;
+  margin-top: .25rem;
+  color: #dc3545;
+  text-align: left;
+}
+
+.is-invalid {
+  border: 1px solid #dc3545 !important;
+}
+
+.is-invalid-input {
+  border-bottom: 1px solid #dc3545 !important;
+}
+.note-text {
+  color: red;
+}
+
+.required:after {
+  content: '*';
+  color: red;
+  font-style: italic;
+}
+
+//href
+.link {
+  text-decoration: underline;
+  color: #5cabff;
 }

@@ -4,15 +4,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
-import { vi_VN } from 'ng-zorro-antd/i18n';
+import { en_US } from 'ng-zorro-antd/i18n';
 import { CommonModule, registerLocaleData } from '@angular/common';
-import vi from '@angular/common/locales/vi';
+import en from '@angular/common/locales/vi';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './auth/login/login.component';
-
-registerLocaleData(vi);
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoaderInterceptor } from './shared/services/interceptors/loader-interceptor.service';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { ExceptionModule } from './exception/exception.module';
+registerLocaleData(en);
 
 @NgModule({
   declarations: [
@@ -26,9 +29,14 @@ registerLocaleData(vi);
     BrowserAnimationsModule,
     SharedModule,
     NoopAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ExceptionModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: vi_VN }],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
+    { provide: NZ_I18N, useValue: en_US },
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

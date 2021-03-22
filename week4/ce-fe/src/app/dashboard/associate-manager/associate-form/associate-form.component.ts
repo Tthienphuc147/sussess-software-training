@@ -50,15 +50,14 @@ export class AssociateFormComponent implements OnInit {
     let sources: Observable<any>[] = [];
     sources.push(this.masterDataService.getAllPosition());
     sources.push(this.masterDataService.getAllPositionGroup());
-    if (this.associateForm.getRawValue().role_id === this.eRole.MEMBER_ROLE) {
-      sources.push(this.associateService.getAllAssociate())
-    }
+    sources.push(this.associateService.getAllAssociate())
     if (this.id) {
       sources.push(this.associateService.getDetailAssociate(this.id));
     }
     forkJoin(sources).subscribe(([res1, res2, res3, res4]) => {
       this.groupsData = res1;
       this.positionsData = res2;
+      this.positionDataFilter = this.positionsData;
       this.managerData = res3;
       this.associate = res4;
       this.createForm();
@@ -69,20 +68,28 @@ export class AssociateFormComponent implements OnInit {
     this.associateForm = this.fb.group({
       fullName: [this.associate.fullName, [CustomValidator.required]],
       email: [this.associate.email, [CustomValidator.required, CustomValidator.email]],
-      position_id: [this.associate.position_id, [CustomValidator.required]],
-      positionGroup: [this.associate.positionGroup.id, [CustomValidator.required]],
-      role_id: [this.associate.role_id, [CustomValidator.required]],
+      position_id: [this.associate.position && this.associate.position.id, [CustomValidator.required]],
+      positionGroup: [this.associate.positionGroup && this.associate.positionGroup.id, [CustomValidator.required]],
+      role_id: [this.associate.role && this.associate.role.id, [CustomValidator.required]],
       manager_id: [this.associate.manager_id],
       birthday: [this.associate.birthday ? new Date(this.associate.birthday): null],
       password: ['', [CustomValidator.required]]
     })
+    if(this.id) {
+      this.associateForm.get('password').clearValidators()
+    }
+    if (this.associate.role && +this.associate.role.id === 2) {
+      this.associateForm.get('manager_id').setValidators([CustomValidator.required])
+    }else {
+      this.associateForm.get('manager_id').clearValidators()
+    }
     this.associateForm.valueChanges.subscribe(_ => {
       this.onFormValueChanged();
     })
   }
 
   onFormValueChanged(): void {
-    if (this.associateForm.getRawValue().role_id === this.eRole.MEMBER_ROLE) {
+    if (this.associateForm.getRawValue().role_id === 2) {
       this.associateForm.get('manager_id').setValidators([CustomValidator.required])
     }else {
       this.associateForm.get('manager_id').clearValidators()
@@ -93,7 +100,7 @@ export class AssociateFormComponent implements OnInit {
   }
 
   generatePassword(): void {
-    this.associateForm.get('password').patchValue(Utils.regenerativePassword); 
+    this.associateForm.get('password').patchValue(Utils.regenerativePassword(6)); 
   }
 
   changePositionGroup(event): void {
@@ -115,7 +122,7 @@ export class AssociateFormComponent implements OnInit {
       if (this.id) {
         requestModel.append("id", this.id);
       }
-      if (this.associateForm.getRawValue().role_id === this.eRole.MANAGER_ROLE) {
+      if (this.associateForm.getRawValue().role_id === 2) {
         requestModel.append("manager_id", this.associateForm.getRawValue().manager_id)
       }
       requestModel.append("fullName", this.associateForm.getRawValue().fullName);

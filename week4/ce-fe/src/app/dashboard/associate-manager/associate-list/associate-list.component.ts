@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EProfileRole } from 'src/app/shared/enums/profile-role.enum';
 import { ERole } from 'src/app/shared/enums/role.enum';
 import { AssociateService } from 'src/app/shared/services/associate.service';
 
@@ -8,8 +9,8 @@ import { AssociateService } from 'src/app/shared/services/associate.service';
   styleUrls: ['./associate-list.component.scss']
 })
 export class AssociateListComponent implements OnInit{
-  dtoList = [];
-  eRole = ERole;
+  associateList = [];
+  eRole = EProfileRole;
   constructor(private associateService: AssociateService) { }
 
   ngOnInit(): void {
@@ -19,7 +20,7 @@ export class AssociateListComponent implements OnInit{
 
   getAll(): void {
     this.associateService.getAllAssociate().subscribe(res => {
-      this.dtoList = res;
+      this.associateList = res;
     })
   }
 
