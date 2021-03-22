@@ -16,6 +16,10 @@ export class CompetencyService extends BaseService {
     return this.get('api/competency/get-all');
   }
 
+  getAllCompetencyPosition(positionId): Observable<any>  {
+    return this.get(`api/competency-position/get-detail?position_id=${positionId}`);
+  }
+
   getDetailCompetency(id: string): Observable<any> {
     return this.get(`api/competency/${id}`);
   }

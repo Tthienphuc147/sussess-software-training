@@ -43,8 +43,6 @@ export class AuthenticationService extends BaseService {
     try {
       let result = JSON.parse(window.localStorage[localStorageKey]) as AuthenticationModel;
       result.role = result.role === '1' ? 'ADMIN_ROLE' : result.role === '2' ? 'MEMBER_ROLE' : 'MANAGER_ROLE';
-      //TODO role temp
-      result.role = 'ADMIN_ROLE';
       return result;
     } catch (error) {
       return null;

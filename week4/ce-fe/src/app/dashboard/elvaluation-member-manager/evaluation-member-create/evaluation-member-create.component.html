@@ -1,1 +1,13 @@
-<p>evaluation-member-create works!</p>
+<app-page-container>
+    <section header>
+        <h1><i nz-icon nzType="arrow-left" class="mr-2 pointer" nzTheme="outline" (click)="goBack()"></i> Create Associate</h1>
+        <div class="btn-area">
+            <div class="btn btn-sm btn-ss btn-ss--primary" (click)="create()">Save</div>
+        </div>
+    </section>
+  
+    <section content>
+        
+        <app-evaluation-member-form #form ></app-evaluation-member-form>
+    </section>
+  </app-page-container>

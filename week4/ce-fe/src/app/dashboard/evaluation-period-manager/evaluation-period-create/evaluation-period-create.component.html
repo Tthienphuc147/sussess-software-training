@@ -1,1 +1,13 @@
-<app-evaluation-period-form ></app-evaluation-period-form>
+
+<app-page-container>
+    <section header>
+        <h1><i nz-icon nzType="arrow-left" class="mr-2 pointer" nzTheme="outline" (click)="goBack()"></i> Create Evaluation Period</h1>
+        <div class="btn-area">
+            <div class="btn btn-sm btn-ss btn-ss--primary" (click)="create()">Save</div>
+        </div>
+    </section>
+  
+    <section content>
+        <app-evaluation-period-form ></app-evaluation-period-form>
+    </section>
+  </app-page-container>

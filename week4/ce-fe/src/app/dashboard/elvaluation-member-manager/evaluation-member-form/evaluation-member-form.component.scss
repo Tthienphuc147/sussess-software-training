@@ -1,0 +1,50 @@
+.eva-status {
+    width: 120px;
+    padding: 3px 4px;
+    border-bottom-left-radius: 13px;
+    position: absolute;
+    right: 28px;
+    top: 123px;
+    &--new {
+      background-color: #f29d18;
+      color: #fff;
+    }
+    &--evaluated {
+      background-color: #d7f7d6;
+      color: #000;
+    }
+    &--waiting {
+      background-color: #73a1ea;
+      color: #fff;
+    }
+    &--approved {
+      background-color: #388b59;
+      color: #fff;
+    }
+  }
+  .evaluation-title {
+    color: rgb(12, 105, 3);
+  }
+  .table {
+    th,
+    td {
+      vertical-align: middle;
+    }
+    .competency-common {
+      background-color: #ececec;
+      font-weight: bold;
+    }
+    .competency-input {
+      max-width: 100px;
+    }
+    .disable {
+      background-color: rgb(211, 211, 211);
+    }
+    .sub-font {
+      font-size: 12px;
+    }
+  
+  }
+    .manager-information {
+      padding-right: 9rem;
+    }

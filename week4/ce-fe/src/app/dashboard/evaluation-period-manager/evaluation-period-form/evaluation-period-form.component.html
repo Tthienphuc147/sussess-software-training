@@ -1,22 +1,25 @@
 <div class="form-content" [formGroup]="evaluationPeriodForm" *ngIf="evaluationPeriodForm">
     <div class="row mb-2">
-        <div class="col-sm-6">
-            <label class="mb-1">Name</label>
-            <input type="text" pInputText formControlName="name" />
+        <div class="col-sm-6 d-flex flex-column">
+            <label class="label-input mb-1">Name</label>
+            <input nz-input formControlName="name" [class.is-invalid]="formErrors?.name"/>
+            <div class=" invalid-feedback" *ngIf="formErrors?.name">{{ formErrors?.name }}</div>
         </div>
-        <div class="col-sm-6">
-            <label class="mb-1">Description</label>
-            <textarea formControlName="description" cols="30" rows="5"></textarea>
+        <div class="col-sm-6 d-flex flex-column">
+            <label class="label-input mb-1">Description</label>
+            <textarea nz-input formControlName="description" [class.is-invalid]="formErrors?.description" cols="30" rows="5"></textarea>
         </div>
     </div>
     <div class="row mb-2">
         <div class="col-sm-6">
             <label>From Date</label>
-            <!-- <p-calendar formControlName="start_time"></p-calendar> -->
+            <nz-date-picker formControlName="start_time" [class.is-invalid]="formErrors?.start_time"></nz-date-picker>
+            <div class=" invalid-feedback" *ngIf="formErrors?.start_time">{{ formErrors?.start_time }}</div>
         </div>
         <div class="col-sm-6">
             <label>End Date</label>
-            <!-- <p-calendar formControlName="end_time"></p-calendar> -->
+            <nz-date-picker formControlName="end_time" [class.is-invalid]="formErrors?.end_time"></nz-date-picker>
+            <div class=" invalid-feedback" *ngIf="formErrors?.end_time">{{ formErrors?.end_time }}</div>
         </div>
     </div>
 </div>

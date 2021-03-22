@@ -1,1 +1,12 @@
-<app-associate-form #form ></app-associate-form>
+<app-page-container>
+    <section header>
+        <h1><i nz-icon nzType="arrow-left" class="mr-2 pointer" nzTheme="outline" (click)="goBack()"></i> Create Associate</h1>
+        <div class="btn-area">
+            <div class="btn btn-sm btn-ss btn-ss--primary" (click)="create()">Save</div>
+        </div>
+    </section>
+  
+    <section content>
+        <app-associate-form #form ></app-associate-form>
+    </section>
+  </app-page-container>

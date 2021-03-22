@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EvaluationService } from 'src/app/shared/services/evaluation.service';
 
 @Component({
   selector: 'app-evaluation-member-list',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EvaluationMemberListComponent implements OnInit {
 
-  constructor() { }
+  evaluationList: any;
+  constructor(
+    private evaluationService:EvaluationService
+  ) { }
 
   ngOnInit(): void {
+    this.evaluationList = this.evaluationService.getSelfEvaluation().subscribe(res => {
+      this.evaluationList = res;
+    })
   }
 
 }

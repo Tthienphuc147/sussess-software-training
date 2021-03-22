@@ -1,1 +1,96 @@
-
+<app-page-container>
+    <section header>
+        <h1><i nz-icon nzType="arrow-left" class="mr-2 pointer" nzTheme="outline" (click)="goBack()"></i> Member Information</h1>
+    </section>
+  
+    <section content>
+        <h4>Member Information</h4>
+        <div class="form-content">
+            <div class="row mb-2">
+                <div class="col-sm-6 d-flex flex-column">
+                    <label class="label-input mb-1">Full name</label>
+                    <input nz-input [(ngModel)]="associateDetail.fullName" disabled />
+                </div>
+                <div class="col-sm-6 d-flex flex-column">
+                    <label class="label-input mb-1">Email</label>
+                    <input nz-input [(ngModel)]="associateDetail.email"  disabled />
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-sm-6 d-flex flex-column">
+                    <label class="label-input mb-1">Position Group</label>
+                     <input nz-input [(ngModel)]="associateDetail.positionGroup.name" disabled />
+                </div>
+                <div class="col-sm-6 d-flex flex-column">
+                    <label class="label-input mb-1">Position</label>
+                    <input nz-input [(ngModel)]="associateDetail.position.name" disabled />
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-sm-6 d-flex flex-column">
+                    <label class="label-input">Birthday</label>
+                    <input nz-input [(ngModel)]="associateDetail.birthday" disabled />
+                </div>
+            </div>
+        
+        </div>
+        <hr class="my-2">
+        <h4>Evaluation History</h4>
+        <div class="table-area">
+            <nz-table [nzData]="evaluationList" nzShowPagination
+            nzShowSizeChanger>
+                <thead>
+                    <tr>
+                        <th class="col-no--width">No</th>
+                        <th>Period Name</th>
+                        <th>Start Day</th>
+                        <th>End Day</th>
+                        <th>Status Evaluation</th>
+                        <th>Result</th>
+                        <th class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of evaluationList;let i = index">
+                    <td class="text-center">{{ i + 1}}</td>
+                    <td>
+                        {{ item.evaluation_period && item.evaluation_period.name }}
+                    </td>
+                    <td>
+                        {{
+                            item.evaluation_period &&
+                              item.evaluation_period.start_time | date:'dd/MM/yyyy'
+                          }}
+                    </td>
+                    <td>
+                        {{
+                            item.evaluation_period &&
+                              item.evaluation_period.end_time | date:'dd/MM/yyyy'
+                          }}
+                    </td>
+                    <td>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <div class="eva-status eva-status--new" 
+                            [ngClass]="
+                            {'eva-status--evaluated': item.status.id === 2,
+                            'eva-status--waiting': item.status.id === 3,
+                            'eva-status--approved': item.status.id === 4}">
+                            {{ item.status && item.status.name }}
+                            </div>
+                        </div>
+                    </td>
+                    <td [class.result]="item.status && item.status.id != 4">
+                        {{ item.result_point }}
+                    </td>
+                    <td>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <i *ngIf="item.status.id !== 2" nz-icon nzType="eye" nzTheme="outline"  class="table-icon--view pointer" [routerLink]="['/dashboard/member-manager/view/',item?.id]"></i>
+                            <i *ngIf="item.status.id === 2" nz-icon nzType="edit" nzTheme="outline"  class="table-icon--review pointer" [routerLink]="['/dashboard/member-manager/view/',item?.id]"></i>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+              </nz-table>
+        </div>
+    </section>
+  </app-page-container>

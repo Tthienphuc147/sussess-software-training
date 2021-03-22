@@ -1,1 +1,246 @@
-<p>evaluation-member-form works!</p>
+<div class="form-content">
+    <div
+      class="eva-status"
+      [ngClass]="{
+        'eva-status--new': status.id === 1,
+        'eva-status--evaluated': status.id === 2,
+        'eva-status--waiting': status.id === 3,
+        'eva-status--approved': status.id === 4
+      }"
+    >
+      {{ status.name }}
+    </div>
+    <div class="evaluation-title">
+      <h3 class="text-uppercase font-weight-bold">
+        bảng đánh giá năng lực nhân viên
+      </h3>
+      <h4 class="font-weight-bold" *ngIf="period">
+        Kỳ đánh giá: {{ period.name }}
+      </h4>
+    </div>
+    <hr class="border-dash" />
+    <div class="user-information" *ngIf="userInformation">
+      <p class="text-uppercase font-weight-bold text-left">
+        thông tin nhân viên
+      </p>
+      <div class="row mb-2">
+        <div class="col-md-6 d-flex flex-column">
+            <label class="label-input mb-1">Full Name</label>
+            <input nz-input [(ngModel)]="userInformation.fullName" disabled />
+        </div>
+        <div class="col-md-6 d-flex flex-column">
+            <label class="label-input mb-1">Birthday</label>
+            <input nz-input [(ngModel)]="userInformation.birthday" disabled />
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-md-6 d-flex flex-column">
+            <label class="label-input mb-1">Position Group</label>
+            <input nz-input [(ngModel)]="userInformation.positionGroup && userInformation.positionGroup.name" disabled />
+        </div>
+        <div class="col-md-6 d-flex flex-column">
+            <label class="label-input mb-1">Position</label>
+            <input nz-input [(ngModel)]="userInformation.position && userInformation.position.name" disabled />
+        </div>
+      </div>
+    </div>
+    <hr class="border-dash" />
+    <div class="evaluation-information">
+      <p class="text-uppercase font-weight-bold text-left">
+        Evaluation Information
+      </p>
+      <div class="table-area mt-2">
+        <div class="table-area">
+            <nz-table [nzData]="competencies" nzShowPagination
+            nzShowSizeChanger>
+            <thead>
+                <tr>
+                  <th>Evaluation Content</th>
+                  <th>Important Level</th>
+                  <th>Standard Level</th>
+                  <th>Standard Point</th>
+                  <th>
+                    <p class="mb-0">Evaluation Level</p>
+                    <p class="mb-0 sub-font">(Personal)</p>
+                  </th>
+                  <th>
+                    <p class="mb-0">Evaluation Level</p>
+                    <p class="mb-0 sub-font">(Manager)</p>
+                  </th>
+                  <th>
+                    <p class="mb-0">Evaluation Point</p>
+                    <p class="mb-0 sub-font">(Personal)</p>
+                  </th>
+                  <th>
+                    <p class="mb-0">Evaluation Point</p>
+                    <p class="mb-0 sub-font">(Manager)</p>
+                  </th>
+                  <th>
+                    <p class="mb-0">Note</p>
+                    <p class="mb-0 sub-font">(Personal)</p>
+                  </th>
+                  <th>
+                    <p class="mb-0">Note</p>
+                    <p class="mb-0 sub-font">(Manager)</p>
+                  </th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let competency of competencies;let i = index">
+                <tr class="competency-common">
+                  <td class="text-left">
+                    {{ i + 1 }}.{{ competency.competencyGroup.name }}
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td class="text-right">
+                    {{ Math.floor(100 / competencies.length) }}
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td class="text-right">
+                    {{
+                      getSumPoint(competency.itemData, false) > 0
+                        ? getSumPoint(competency.itemData, false)
+                        : ""
+                    }}
+                  </td>
+                  <td class="text-right">
+                    {{
+                      getSumPoint(competency.itemData, true) > 0
+                        ? getSumPoint(competency.itemData, true)
+                        : ""
+                    }}
+                  </td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr *ngFor="let item of competency.itemData;let j = index">
+                  <td class="text-left">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div>{{ item.name }}</div>
+                      <span  (click)="showInformation(item.competency_id)"
+                        ><i
+                          class="fa table-icon--info fa-info-circle cursor-pointer"
+                          aria-hidden="true"
+                        ></i
+                      ></span>
+                    </div>
+                  </td>
+                  <td class="text-right">{{ item.competency_critical_level }}</td>
+                  <td class="text-right">{{ item.competency_standard_level }}</td>
+                  <td class="text-right">
+                    {{
+                      getStandardPoint(
+                        item.competency_critical_level,
+                        competency.itemData
+                      )
+                    }}
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-center">
+                        <nz-input-number [ngClass]="{ 'is-invalid': isSend && !item.evaluation_level }" [disabled]="roleId !== 2 || status.id === 2 || status.id === 4" [(ngModel)]="item.evaluation_level" [nzMin]="1" [nzMax]="3" [nzStep]="1"></nz-input-number>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-center">
+                        <nz-input-number 
+                            [ngClass]="{ 'is-invalid':
+                            isSend &&
+                            roleId === 3 &&
+                            !item.evaluation_level_manager }" 
+                            [disabled]="roleId != 3 || status.id === 3 || status.id === 4"  
+                            [(ngModel)]="item.evaluation_level_manager" 
+                            [nzMin]="1" [nzMax]="3" [nzStep]="1">
+                        </nz-input-number>
+                    </div>
+                  </td>
+                  <td class="text-right">
+                    {{
+                      getPoint(
+                        item.evaluation_level,
+                        item.competency_standard_level,
+                        getStandardPoint(
+                          item.competency_critical_level,
+                          competency.itemData
+                        )
+                      ) > 0 ?  getPoint(
+                        item.evaluation_level,
+                        item.competency_standard_level,
+                        getStandardPoint(
+                          item.competency_critical_level,
+                          competency.itemData
+                        )
+                      ): ""
+                    }}
+                  </td>
+                  <td class="text-right" :class="{ disable: roleId === 2 }">
+                    {{
+                      getPoint(
+                        item.evaluation_level_manager,
+                        item.competency_standard_level,
+                        getStandardPoint(
+                          item.competency_critical_level,
+                          competency.itemData
+                        )
+                      ) > 0
+                        ? getPoint(
+                            item.evaluation_level_manager,
+                            item.competency_standard_level,
+                            getStandardPoint(
+                              item.competency_critical_level,
+                              competency.itemData
+                            )
+                          )
+                        : ""
+                    }}
+                  </td>
+                  <td>
+                    <textarea
+                      cols="20"
+                      rows="2"
+                      class="form-control"
+                      nz-input
+                      [(ngModel)]="item.self_note" 
+                      [disabled]="roleId != 2 || status.id === 2 || status.id === 4"
+                    ></textarea>
+                  </td>
+                  <td>
+                    <textarea
+                      cols="20"
+                      rows="2"
+                      class="form-control"
+                      nz-input
+                      [(ngModel)]="item.manager_note" 
+                      [disabled]="roleId !== 3 || status.id === 3 || status.id === 4"
+                    ></textarea>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr class="competency-common">
+                  <td class="text-left">Kết quả đánh giá</td>
+                  <td></td>
+                  <td></td>
+                  <td class="text-right">100</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td class="text-right">
+                    {{
+                      roleId !== 2 ||
+                      (roleId === 2 &&
+                        (status.id === 3 || status.id === 4) &&
+                        getResult(competencies) > 0)
+                        ? getResult(competencies)
+                        : ""
+                    }}
+                  </td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+              </nz-table>
+        </div>
+      </div>
+    </div>
+</div>

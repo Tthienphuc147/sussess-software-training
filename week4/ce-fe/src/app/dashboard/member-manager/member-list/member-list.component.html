@@ -1,30 +1,31 @@
-<p>member-list works!</p>
-<section class="header-page">
-
-</section>
-<section class="content-page">
-    <div class="table">
-        <!-- <p-table [value]="dtoList" #dt sortMode="single" [rowHover]="true" [responsive]="true" [scrollable]="true"
-            scrollHeight="530px" (onLazyLoad)="getAll()">
-            <ng-template pTemplate="header">
-                <tr>
-                    <th>No</th>
-                    <th>Full Name</th>
-                    <th>Email</th>
-                    <th>Birthday</th>
-                    <th>Role</th>
-                    <th>Position</th>
-                    <th>Action</th>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
-                <tr>
-                    <td>{{ rowIndex + 1}}</td>
+<app-page-container>
+    <section header>
+        <h1 class="mb-0">Member Management</h1>
+    </section>
+  
+    <section content>
+        <div class="table-area">
+            <nz-table [nzData]="memberList" nzShowPagination
+            nzShowSizeChanger>
+                <thead>
+                    <tr>
+                        <th class="col-no--width">No</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Birthday</th>
+                        <th class="col-role--width">Role</th>
+                        <th>Position</th>
+                        <th class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of memberList;let i = index">
+                    <td class="text-center">{{ i + 1}}</td>
                     <td>
                         {{ item.full_name }}
                     </td>
                     <td>
-                        {{ item.email }}
+                        <span class="link">{{ item.email }}</span>
                     </td>
                     <td>
                         {{ item.birthday | date:"dd/MM/yyyy" }}
@@ -42,19 +43,13 @@
                     </td>
                     <td>
                         <div class="d-flex justify-content-center align-items-center">
-                            <i [routerLink]="'/member-manager/edit/'+ item.id"
-                                class="fa fa-eye table-icon--view cursor-pointer" aria-hidden="true"></i>
+                            <i nz-icon nzType="eye" nzTheme="outline"  class="table-icon--view pointer" [routerLink]="['/dashboard/member-manager/view/',item?.id]"></i>
                         </div>
                     </td>
                 </tr>
-            </ng-template>
-            <ng-template pTemplate="emptymessage">
-                <tr>
-                    <td [attr.colspan]="7" >
-                        No records found
-                    </td>
-                </tr>
-            </ng-template>
-        </p-table> -->
-    </div>
-</section>
+                </tbody>
+              </nz-table>
+        </div>
+    </section>
+  </app-page-container>
+  

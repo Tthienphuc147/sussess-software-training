@@ -8,6 +8,7 @@ import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzResultModule } from 'ng-zorro-antd/result';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
 @NgModule({
   declarations: [],
   imports: [
@@ -19,7 +20,8 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
     NzTableModule,
     NzSelectModule,
     NzDatePickerModule,
-    NzResultModule
+    NzResultModule,
+    NzInputNumberModule
   ],
   exports: [
     NzLayoutModule,
@@ -30,7 +32,8 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
     NzTableModule,
     NzSelectModule,
     NzDatePickerModule,
-    NzResultModule
+    NzResultModule,
+    NzInputNumberModule
   ]
 })
 export class AntdModule { }

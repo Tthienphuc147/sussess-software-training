@@ -1,1 +1,71 @@
-<p>evaluation-member-list works!</p>
+<app-page-container>
+    <section header>
+        <h1 class="mb-0">Evaluation Management</h1>
+        <div class="btn-area">
+            <div class="btn btn-sm btn-ss btn-ss--primary" [routerLink]="'/dashboard/associate-manager/create'">Create Associate</div>
+        </div>
+    </section>
+  
+    <section content>
+        <div class="table-area">
+            <nz-table [nzData]="evaluationList" nzShowPagination
+            nzShowSizeChanger>
+                <thead>
+                    <tr>
+                        <th class="col-no--width">No</th>
+                        <th>Associate name</th>
+                        <th>Associate Position</th>
+                        <th>Period Name</th>
+                        <th>Start Day</th>
+                        <th>End Day</th>
+                        <th>Status Evaluation</th>
+                        <th class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of evaluationList;let i = index">
+                    <td class="text-center">{{ i + 1}}</td>
+                    <td>
+                        {{ item.associate && item.associate.full_name }}
+                    </td>
+                    <td>
+                        {{ item.associate && item.associate.position && item.associate.position.name}}
+                    </td>
+                    <td>
+                        {{ item.evaluation_period && item.evaluation_period.name }}
+                    </td>
+                    <td>
+                        {{
+                            item.evaluation_period &&
+                              item.evaluation_period.start_time | date
+                        }}
+                    </td>
+                    <td>
+                        {{
+                          item.evaluation_period &&
+                            item.evaluation_period.end_time | date
+                        }}
+                      </td>
+                    <td>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <div class="eva-status eva-status--new"
+                            [ngClass]="
+                            { 'eva-status--evaluated': item.status_id === 2,
+                            'eva-status--waiting': item.status_id === 3,
+                            'eva-status--approved': item.status_id === 4}">
+                            {{ item.status && item.status.name }}
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <i nz-icon nzType="eye" nzTheme="outline"  class="table-icon--view pointer" [routerLink]="['/dashboard/evaluation-manager/make-result/',item?.id]"></i>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+              </nz-table>
+        </div>
+    </section>
+  </app-page-container>
+  
