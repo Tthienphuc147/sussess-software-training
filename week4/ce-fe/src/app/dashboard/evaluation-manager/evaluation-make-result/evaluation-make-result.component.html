@@ -1,1 +1,20 @@
-<p>evaluation-make-result works!</p>
+<app-page-container>
+    <section header>
+        <h1><i nz-icon nzType="arrow-left" class="mr-2 pointer" nzTheme="outline" (click)="goBack()"></i> Evaluation Information</h1>
+        <div class="btn-area">
+            <template v-if="status && status.id !== 4">
+                <button
+                  class="btn btn-ss btn-ss--approve mr-3"
+                  (click)="approve()"
+                >
+                  Approve Evaluation
+                </button>
+              </template>
+        </div>
+    </section>
+  
+    <section content>
+        
+        <app-evaluation-member-form #form ></app-evaluation-member-form>
+    </section>
+  </app-page-container>

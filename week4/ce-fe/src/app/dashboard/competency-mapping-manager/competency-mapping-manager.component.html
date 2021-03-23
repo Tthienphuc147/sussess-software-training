@@ -1,1 +1,99 @@
-<p>competency-mapping-manager works!</p>
+<app-page-container>
+    <section header>
+        <h1><i nz-icon nzType="arrow-left" class="mr-2 pointer" nzTheme="outline" (click)="goBack()"></i>Competency Position Mapping Manager</h1>
+    </section>
+  
+    <section content>
+        <div class="filter-area d-flex w-100 my-2">
+            <div class="filter-block d-flex mr-3">
+                <label class="label-input mb-1">Position</label>
+                    <nz-select (ngModelChange)="onChangePosition($event)" [(ngModel)]="position"  nzPlaceHolder="Select a position">
+                        <nz-option *ngFor="let item of positionData " [nzLabel]="item?.name" [nzValue]="item?.id"></nz-option>
+                    </nz-select>
+            </div>
+          </div>
+        
+          <div
+        class="table-area mt-4"
+        *ngIf="
+          position &&
+            competencyPositionData &&
+            competencyPositionData.length > 0
+        "
+      >
+        <div class="btn-area d-flex justify-content-between align-items-center">
+                  <h4 class="text-left font-weight-bold">Mapping Table</h4>
+          <div>
+            <button
+            class="btn btn btn-edit"
+            *ngIf="!isEdit"
+            (click)="isEdit = !isEdit"
+          >
+            Edit
+          </button>
+          <template *ngIf="isEdit">
+            <div>
+              <button class="btn btn btn-save mr-2" (click)="showModal()">
+                Save
+              </button>
+              <button class="btn btn btn-cancel " (click)="cancel()">
+                Cancel
+              </button>
+            </div>
+          </template>
+          </div>
+        </div>
+        <p *ngIf="isSubmitted && !validateTable()" class="note mb-2 text-left">
+          *You must fill in these fields as required!
+        </p>
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th colspan="2" class="text-left">Competency</th>
+              <th>Critical Level</th>
+              <th>Standard Level Point</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let item of competencyPositionData;let index = i">
+            <tr class="competency-common">
+              <td colspan="4" class="text-left">
+                {{ item.competencyGroup && item.competencyGroup.name }}
+              </td>
+            </tr>
+            <tr *ngFor="let competency of item.itemData; let j = index">
+              <td class="table-col--check">
+                <label nz-checkbox [disabled]="!isEdit"
+                [(ngModel)]="competency.is_choose"
+                (ngModelChange)="onChangeChoose(competency)" ></label>
+              </td>
+              <td class="text-left table-col--name">
+                {{ competency.name }}
+              </td>
+              <td class=" table-col--point">
+                <nz-input-number 
+                [ngClass]="{ 'is-invalid':
+                competency.is_choosed &&
+                isSubmitted &&
+                !competency.competency_critical_level }" 
+                [disabled]="!competency.is_choosed || !isEdit"  
+                [(ngModel)]="competency.competency_critical_level" 
+                [nzMin]="1" [nzMax]="3" [nzStep]="1">
+            </nz-input-number>
+              </td>
+              <td class="table-col--point">
+                <nz-input-number 
+                [ngClass]="{ 'is-invalid':
+                competency.is_choosed &&
+                isSubmitted &&
+                !competency.competency_standard_level }" 
+                [disabled]="!competency.is_choosed || !isEdit"  
+                [(ngModel)]="competency.competency_standard_level" 
+                [nzMin]="1" [nzStep]="1">
+            </nz-input-number>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </app-page-container>

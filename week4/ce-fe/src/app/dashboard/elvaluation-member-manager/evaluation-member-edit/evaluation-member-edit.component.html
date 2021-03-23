@@ -2,9 +2,29 @@
 
 <app-page-container>
     <section header>
-        <h1><i nz-icon nzType="arrow-left" class="mr-2 pointer" nzTheme="outline" (click)="goBack()"></i> Associate Information</h1>
+        <h1><i nz-icon nzType="arrow-left" class="mr-2 pointer" nzTheme="outline" (click)="goBack()"></i> {{(currentStatus.id === 4 || currentStatus.id === 3) ? "Evaluation Information" : currentStatus.id === 2 ? "Review Evaluation" : "Edit Evaluation"}}</h1>
         <div class="btn-area">
-            <div class="btn btn-sm btn-ss btn-ss--primary" (click)="save()">Save</div>
+            <ng-template
+          *ngIf="
+            currentStatus &&
+            role &&
+            (currentStatus.id === 1 ||
+              (currentStatus.id === 2 && role === 3))
+          "
+        >
+          <button
+            class="btn btn-ce btn-ce--primary mr-3"
+            (click)="save()"
+          >
+            Save
+          </button>
+          <button
+            class="btn btn-ce btn-ce--submit mr-3"
+            (click)="send()"
+          >
+            Send
+          </button>
+        </ng-template>
         </div>
     </section>
   

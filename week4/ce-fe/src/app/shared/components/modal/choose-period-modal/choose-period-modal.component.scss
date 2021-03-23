@@ -1,0 +1,25 @@
+.container-modal {
+  .title {
+    font-size: 20px;
+  }
+  .filter-block {
+    label {
+      font-weight: bold;
+    }
+    .form-control {
+      min-width: 10rem;
+    }
+  }
+  .btn-modal {
+    border: 1px solid rgb(42, 134, 5);
+    width: 80px;
+    &--ok {
+      background-color: rgb(42, 134, 5);
+      color: #fff;
+    }
+    &--cancel {
+      background-color: rgb(235, 235, 235);
+      color: rgb(42, 134, 5);
+    }
+  }
+}

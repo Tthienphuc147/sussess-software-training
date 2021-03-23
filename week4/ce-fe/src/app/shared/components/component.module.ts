@@ -7,9 +7,12 @@ import { PipesModule } from '../pipes/pipes.module';
 import { MyLoaderComponent } from './my-loader/my-loader.component';
 import { ConfirmModalComponent } from './modal/confirm-modal/confirm-modal.component';
 import { PageContainerComponent } from './page-container/page-container.component';
+import { ChoosePeriodModalComponent } from './modal/choose-period-modal/choose-period-modal.component';
+import { SharedModule } from '../shared.module';
+import { CompetencyInformationModalComponent } from './modal/competency-information-modal/competency-information-modal.component';
 
 @NgModule({
-  declarations: [MyLoaderComponent, ConfirmModalComponent, PageContainerComponent],
+  declarations: [MyLoaderComponent, ConfirmModalComponent, PageContainerComponent, ChoosePeriodModalComponent, CompetencyInformationModalComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -17,8 +20,21 @@ import { PageContainerComponent } from './page-container/page-container.componen
     RouterModule,
     DirectivesModule,
     PipesModule,
+    SharedModule
   ],
-  exports: [DirectivesModule, PipesModule, MyLoaderComponent, PageContainerComponent],
-  entryComponents: [],
+  exports: [
+    DirectivesModule, 
+    PipesModule, 
+    MyLoaderComponent, 
+    PageContainerComponent,
+    ConfirmModalComponent,
+    ChoosePeriodModalComponent,
+    CompetencyInformationModalComponent
+  ],
+  entryComponents: [
+    ConfirmModalComponent,
+    ChoosePeriodModalComponent,
+    CompetencyInformationModalComponent
+  ],
 })
 export class ComponentModule {}

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { EvaluationMemberFormComponent } from '../evaluation-member-form/evaluation-member-form.component';
 import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-evaluation-member-create',
   templateUrl: './evaluation-member-create.component.html',
@@ -8,13 +9,19 @@ import { Location } from '@angular/common';
 })
 export class EvaluationMemberCreateComponent implements OnInit {
   @ViewChild('form', {static: true}) form : EvaluationMemberFormComponent;
-  constructor(private location: Location) { }
+  periodId: any;
+
+  constructor(
+    private location: Location,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    this.periodId = this.route.snapshot.paramMap.get('periodId');
   }
 
-  create() : void {
-    //this.form.submitForm();
+  save() {
+    this.form.save(false);
   }
 
   goBack(): void {

@@ -10,7 +10,8 @@ export class EvaluationListComponent implements OnInit {
 
   evaluationList: any;
   constructor(
-    private evaluationService:EvaluationService
+    private evaluationService:EvaluationService,
+
   ) { }
 
   ngOnInit(): void {
@@ -18,5 +19,6 @@ export class EvaluationListComponent implements OnInit {
       this.evaluationList = res;
     })
   }
+
 
 }

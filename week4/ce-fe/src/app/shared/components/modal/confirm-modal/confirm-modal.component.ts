@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, Input, OnInit } from '@angular/core';
+import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
 @Component({
   selector: 'app-confirm-modal',
   templateUrl: './confirm-modal.component.html',
   styleUrls: ['./confirm-modal.component.scss']
 })
-export class ConfirmModalComponent implements OnInit {
+export class ConfirmModalComponent {
 
-  constructor() { }
+  @Input() title = '';
+  @Input() content = '';
 
-  ngOnInit(): void {
+  constructor(private modal: NzModalRef) {}
+
+  cancelModal(): void {
+    this.modal.destroy({ data: false });
+  }
+
+  confirmModal(): void {
+    this.modal.destroy({ data: true });
   }
 
 }

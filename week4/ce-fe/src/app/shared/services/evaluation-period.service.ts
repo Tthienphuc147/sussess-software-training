@@ -20,6 +20,10 @@ export class EvaluationPeriodService extends BaseService {
     return this.get(`api/evaluation-period/${id}`);
   }
 
+  getAllPeriodAvailable(): Observable<any> {
+    return this.get(`api/evaluation-period/get-available-period`);
+  };
+
   saveEvaluationPeriod(data, id): Observable<any> {
     const url = !id ? "api/evaluation-period/create" : "api/evaluation-period/update";
     return !id ? this.post(url, data) : this.put(url, data);

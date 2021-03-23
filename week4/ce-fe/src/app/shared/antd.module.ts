@@ -9,6 +9,7 @@ import { NzResultModule } from 'ng-zorro-antd/result';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
+import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 @NgModule({
   declarations: [],
   imports: [
@@ -21,7 +22,8 @@ import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
     NzSelectModule,
     NzDatePickerModule,
     NzResultModule,
-    NzInputNumberModule
+    NzInputNumberModule,
+    NzCheckboxModule
   ],
   exports: [
     NzLayoutModule,
@@ -33,7 +35,8 @@ import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
     NzSelectModule,
     NzDatePickerModule,
     NzResultModule,
-    NzInputNumberModule
+    NzInputNumberModule,
+    NzCheckboxModule
   ]
 })
 export class AntdModule { }
