@@ -16,6 +16,9 @@ import { ElvaluationMemberManagerComponent } from './elvaluation-member-manager.
     CommonModule,
     SharedModule,
     ElvaluationMemberManagerRoutingModule
+  ],
+  exports: [
+    EvaluationMemberFormComponent
   ]
 })
 export class ElvaluationMemberManagerModule { }

@@ -10,6 +10,7 @@ import { PageContainerComponent } from './page-container/page-container.componen
 import { ChoosePeriodModalComponent } from './modal/choose-period-modal/choose-period-modal.component';
 import { SharedModule } from '../shared.module';
 import { CompetencyInformationModalComponent } from './modal/competency-information-modal/competency-information-modal.component';
+import { AntdModule } from '../antd.module';
 
 @NgModule({
   declarations: [MyLoaderComponent, ConfirmModalComponent, PageContainerComponent, ChoosePeriodModalComponent, CompetencyInformationModalComponent],
@@ -20,7 +21,7 @@ import { CompetencyInformationModalComponent } from './modal/competency-informat
     RouterModule,
     DirectivesModule,
     PipesModule,
-    SharedModule
+    AntdModule,
   ],
   exports: [
     DirectivesModule, 

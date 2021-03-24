@@ -5,14 +5,16 @@ import { EvaluationManagerRoutingModule } from './evaluation-manager-routing.mod
 import { EvaluationMakeResultComponent } from './evaluation-make-result/evaluation-make-result.component';
 import { EvaluationListComponent } from './evaluation-list/evaluation-list.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { EvaluationMemberFormComponent } from '../elvaluation-member-manager/evaluation-member-form/evaluation-member-form.component';
+import { ElvaluationMemberManagerModule } from '../elvaluation-member-manager/elvaluation-member-manager.module';
+import { EvaluationManagerComponent } from './evaluation-manager.component';
 
 
 @NgModule({
-  declarations: [EvaluationMakeResultComponent, EvaluationListComponent, EvaluationMemberFormComponent],
+  declarations: [EvaluationManagerComponent,EvaluationMakeResultComponent, EvaluationListComponent],
   imports: [
     CommonModule,
     SharedModule,
+    ElvaluationMemberManagerModule,
     EvaluationManagerRoutingModule
   ]
 })
