@@ -21,6 +21,7 @@
     "@angular/router": "~11.1.0",
     "bootstrap": "^4.6.0",
     "font-awesome": "^4.7.0",
+    "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "ng-zorro-antd": "^11.2.0",
     "ngx-notification-msg": "^0.2.0",

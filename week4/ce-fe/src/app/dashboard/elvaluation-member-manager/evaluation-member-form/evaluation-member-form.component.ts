@@ -8,6 +8,8 @@ import * as _ from 'lodash';
 import { EvaluationPeriodService } from 'src/app/shared/services/evaluation-period.service';
 import { AssociateService } from 'src/app/shared/services/associate.service';
 import { CompetencyService } from 'src/app/shared/services/competency.service';
+import { NzModalService } from 'ng-zorro-antd/modal';
+import { CompetencyInformationModalComponent } from 'src/app/shared/components/modal/competency-information-modal/competency-information-modal.component';
 @Component({
   selector: 'app-evaluation-member-form',
   templateUrl: './evaluation-member-form.component.html',
@@ -36,6 +38,7 @@ export class EvaluationMemberFormComponent implements OnInit {
     private router: Router,
     private location: Location,
     private datePipe: DatePipe,
+    private modalService: NzModalService,
     private  ngxNotificationMsgService: NgxNotificationMsgService) { }
 
   ngOnInit(): void {
@@ -76,6 +79,19 @@ export class EvaluationMemberFormComponent implements OnInit {
       this.period = res.evaluation_period;
       this.status = res.status;
     });
+  }
+
+  showInformation(id) {
+    const modal = this.modalService.create( {
+      nzContent: CompetencyInformationModalComponent,
+      nzComponentParams: {
+        id: id
+      }
+    } );
+  }
+
+  getCompetencyLength(data) {
+    return Math.floor(100 / (data || []).length)
   }
 
   getStandardPoint(criticalLevel, data) {

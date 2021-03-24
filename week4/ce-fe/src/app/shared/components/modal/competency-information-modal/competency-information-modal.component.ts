@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NzModalRef } from 'ng-zorro-antd/modal';
+import { CompetencyService } from 'src/app/shared/services/competency.service';
 
 @Component({
   selector: 'app-competency-information-modal',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompetencyInformationModalComponent implements OnInit {
 
-  constructor() { }
+  @Input() id;
+  competencyDetail: any;
+  constructor(
+    private modal: NzModalRef,
+    private competencyService: CompetencyService,
+  ) { }
 
   ngOnInit(): void {
+    this.competencyService.getDetailCompetency(this.id).subscribe(res => {
+      this.competencyDetail = res;
+    })
+  }
+
+  cancelModal(): void {
+    this.modal.destroy({ data: false });
   }
 
 }

@@ -51,8 +51,7 @@
       </p>
       <div class="table-area mt-2">
         <div class="table-area">
-            <nz-table [nzData]="competencies" nzShowPagination
-            nzShowSizeChanger>
+            <nz-table [nzData]="competencies">
             <thead>
                 <tr>
                   <th>Evaluation Content</th>
@@ -93,9 +92,9 @@
                   <td></td>
                   <td></td>
                   <td class="text-right">
-                    {{ Math.floor(100 / competencies.length) }}
-                  </td>
-                  <td></td>
+                    {{ getCompetencyLength(competencies)}}
+                  </td> 
+                  <td></td> 
                   <td></td>
                   <td class="text-right">
                     {{
